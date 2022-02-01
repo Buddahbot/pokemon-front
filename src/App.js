@@ -1,11 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
+import NavBar from "./components/NavBar";
+import AppRouter from "./AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <h1>POKE-FIGHT!</h1>
-      <h2>GROUP TWO VERSION</h2>
+      <AppRouter />
     </div>
   );
 }
