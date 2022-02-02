@@ -1,16 +1,11 @@
 import "../App.css";
-import { PokeContext} from "../context/PokeContext";
- import {useState, useContext, useEffect} from 'react'
+import { PokeContext } from "../context/PokeContext";
+import { useState, useContext, useEffect } from "react";
 
 const Home = () => {
-  const[pokemons, setPokemons] = useContext(PokeContext);
-
-
-  return (
-    <>
-      <h2>Home</h2>
-    </>
-  );
+  const [pokemons, setPokemons] = useContext(PokeContext);
+  console.log(pokemons);
+  return <></>;
 };
 
 export default Home;

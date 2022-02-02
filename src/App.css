@@ -40,3 +40,10 @@
 nav a {
   margin: 20px;
 }
+
+.two-columns {
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

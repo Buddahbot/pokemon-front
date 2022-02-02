@@ -14,6 +14,7 @@ const NavBar = () => {
         <Link to="/fight">Fight</Link>
         <Link to="/winner">Winner</Link>
         <Link to="/leaderboard">Leaderboard</Link>
+        <Link to="/pokemonlist">Pokemonlist</Link>
         <hr />
       </nav>
     </>

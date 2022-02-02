@@ -1,0 +1,14 @@
+.bg {
+  background-image: url("../images/bg0.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+}
+
+h2 {
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.733);
+  font-size: 40px;
+  padding-top: 50px;
+}

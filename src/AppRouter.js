@@ -10,14 +10,15 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Route, Routes, Link } from "react-router-dom";
 import { useState, useEffect, useParams } from "react";
+import PokemonList from "./components/PokemonList";
 
 const AppRouter = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route excat path="/" element={<PokemonList />}/>
-        {/* <Route exact path="/" element={<Home />}></Route>{" "} */}
+        <Route exact path="/pokemonlist" element={<PokemonList />} />
+        <Route exact path="/" element={<Home />}></Route>{" "}
         <Route exact path="/fighter" element={<Fighter />}></Route>
         <Route exact path="/matchup" element={<Matchup />}></Route>
         <Route exact path="/fight" element={<Fight />}></Route>
