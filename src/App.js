@@ -1,12 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import AppRouter from "./AppRouter";
+import { PokeController } from './context/PokeContext'
 
 function App() {
   return (
     <div className="App">
-      <AppRouter />
+      <PokeController>
+        <AppRouter />
+      </PokeController>
     </div>
   );
 }
