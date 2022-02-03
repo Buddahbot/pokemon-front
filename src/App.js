@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import NavBar from "./components/NavBar";
 import AppRouter from "./AppRouter";
 import { PokeController } from "./context/PokeContext";

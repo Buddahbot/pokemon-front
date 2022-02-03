@@ -17,9 +17,9 @@ const AppRouter = () => {
     <>
       <Header />
       <Routes>
-        <Route exact path="/pokemonlist" element={<PokemonList />} />
-        <Route exact path="/" element={<Home />}></Route>{" "}
-        <Route exact path="/fighter" element={<Fighter />}></Route>
+        <Route exact path="/" element={<PokemonList />} />
+        {/* <Route exact path="/" element={<Home />}></Route>{" "} */}
+        <Route exact path="/pokemon/:id" element={<Fighter />}></Route>
         <Route exact path="/matchup" element={<Matchup />}></Route>
         <Route exact path="/fight" element={<Fight />}></Route>
         <Route exact path="/winner" element={<Winner />}></Route>
