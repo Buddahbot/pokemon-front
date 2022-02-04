@@ -11,21 +11,19 @@ const PokemonList = () => {
   const [clicked, setClicked] = useContext(ClickContext);
   const [shuffle, setShuffle] = useContext(ShuffleContext);
   const default20 = [];
-  const fav = [
-    25, 6, 133, 7, 130, 94, 144, 145, 146, 150, 123, 148, 65, 22, 143, 115, 3,
-    135, 89, 34, 12,
-  ];
 
-  // console.log(fav);
-  const newNum = [];
-  newNum.push(fav.map((e) => e - 1));
-  // console.log(newNum);
-  for (let i = 0; i < 21; i++) {
-    // console.log(pokemons[i]);
-    // default20.push(pokemons[newNum[i]]);
+  const fav = [25, 6, 133, 7, 130, 94, 144, 145, 146,
+              150, 123, 148, 65, 22, 143, 115, 3,
+              135, 89, 34, 12];
+
+  let newNum = [];
+  newNum = fav.map((e) => parseInt(e) - 1);
+  //console.log(newNum[0]);
+
+  for (let i = 0; i < newNum.length; i++) {
+    default20.push(pokemons[newNum[i]-1])
   }
-
-  console.log(default20);
+  console.log(default20)
 
   const handleShuffle = (e) => {
     e.preventDefault();
@@ -34,12 +32,8 @@ const PokemonList = () => {
     for (let i = 0; i < 21; i++) {
       new20.push(pokemons[Math.floor(Math.random() * pokemons.length)]);
     }
-    // console.log(new20);
-    // setnewPokemons(new20);
     setShuffle(new20);
     console.log(shuffle);
-    // default20 = [];
-    // setPokemons([]);
   };
 
   // const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ID}.png`;
