@@ -30,7 +30,7 @@ const Fighter = () => {
             <h3>{pokemon.type[0]}</h3>
             <h3>{pokemon.base.HP}</h3>
             Stats: Attack {pokemon.base.Attack} Defense: {pokemon.base.Defense}{" "}
-            Sp. Attack{pokemon.base.Sp.Attack} Speed:{pokemon.base.Speed}
+            {/* Sp. Attack{pokemon.base.Sp.Attack} Speed:{pokemon.base.Speed} */}
           </div>
         </div>
       </div>
