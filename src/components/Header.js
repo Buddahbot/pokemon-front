@@ -7,8 +7,10 @@ const Header = () => {
   return (
     <>
       <NavBar />
+
       {/* <h1>POKE-FIGHT!</h1> */}
       <img src={Logo} className="logo" />
+
     </>
   );
 };
