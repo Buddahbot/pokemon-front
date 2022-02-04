@@ -2,6 +2,7 @@
   text-align: center;
 } */
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -41,9 +42,44 @@ nav a {
   margin: 20px;
 }
 
-.two-columns {
-  width: 600px;
+.home-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 500px;
+}
+.poke-grid {
+  /* border: 2px solid red; */
+  width: 90%;
+  display: grid;
+
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  grid-gap: 10px;
+}
+
+.grid-cell {
+  /* border: 2px solid green; */
+  background-color: white;
+  padding: 1.5rem 0;
+  margin: 0.3rem;
+  border: 1px solid #efefef;
+  border-radius: 0.5rem;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
+}
+.grid-cell img {
+  height: auto;
+  width: 200px;
+}
+#shuffleBtn {
+  background-color: white;
+  border: 2px solid blue;
 }

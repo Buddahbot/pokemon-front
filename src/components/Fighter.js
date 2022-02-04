@@ -1,24 +1,40 @@
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { PokeContext } from "../context/PokeContext";
 import "../App.css";
 
 const Fighter = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
+  const { id } = useParams();
+  console.log(id);
+  // const pokemon = pokemons.find((e) => e.id === id);
 
-  const placeholder = pokemons[10];
-  const ID = placeholder.id;
+  const pokemon = pokemons[id - 1];
+  const ID = pokemon.id;
   console.log(ID);
-  const placeholderImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ID}.png`;
+  const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
-  // console.log("PLACEHOLDER FIGHTER: " + placeholder);
+  // console.log("pokemon FIGHTER: " + pokemon);
   return (
     <>
-      <h2>Fighter</h2>
-      <img src={placeholderImage} style={{ width: "300px" }} />
-      <h3>{placeholder.name.english}</h3>
-      <p>{placeholder.name.japanese}</p>
+      <div className="fighter-containers">
+        <div className="fighter-imageName">
+          <h3>
+            You picked:{pokemon.name.english} <br />
+            {pokemon.name.japanese}
+          </h3>
+          <img src={pokemonImage} style={{ width: "300px" }} />
+
+          <div className="bio-container">
+            <h3>{pokemon.type[0]}</h3>
+            <h3>{pokemon.base.HP}</h3>
+            Stats: Attack {pokemon.base.Attack} Defense: {pokemon.base.Defense}{" "}
+            Sp. Attack{pokemon.base.Sp.Attack} Speed:{pokemon.base.Speed}
+          </div>
+        </div>
+      </div>
+      <p></p>
 
       <h3></h3>
     </>
