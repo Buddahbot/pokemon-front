@@ -1,48 +1,48 @@
 import "../App.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { PokeContext } from "../context/PokeContext";
+import { PlayerContext } from "../context/PlayerContext";
 import "../App.css";
 
 const Fighter = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
+  const [player, setPlayer] = useContext(PlayerContext);
+
   const { id } = useParams();
-  console.log(id);
-  // const pokemon = pokemons.find((e) => e.id === id);
-
   const pokemon = pokemons[id - 1];
-  const ID = pokemon.id;
-  console.log(ID);
-  const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
-  // console.log("pokemon FIGHTER: " + pokemon);
+  useEffect(() => {
+    setPlayer({
+      id: pokemon.id,
+      nameEN: pokemon.name.english,
+      nameJP: pokemon.name.japanese,
+      type: pokemon.type[0],
+      hp: pokemon.base.HP,
+      attack: pokemon.base.Attack,
+      defense: pokemon.base.Defense,
+      image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+    });
+  }, []);
+
   return (
     <>
       <div className="fighter-containers">
         <div className="fighter-imageName">
           <h3>
-            You picked:{pokemon.name.english} <br />
-            {pokemon.name.japanese}
+            You picked:{player.nameEN} <br />
+            {player.nameJP}
           </h3>
-          <img src={pokemonImage} style={{ width: "300px" }} />
 
-          <div className="bio-container">
-            <h3>{pokemon.type[0]}</h3>
-            <h3>{pokemon.base.HP}</h3>
-            Stats: Attack {pokemon.base.Attack} Defense: {pokemon.base.Defense}{" "}
-            {/* Sp. Attack{pokemon.base.Sp.Attack} Speed:{pokemon.base.Speed} */}
-          </div>
+          <img src={player.image} style={{ width: "300px" }} />
         </div>
         <Link to={`/`}>
           <button>Go back </button>
         </Link>
         <Link to={`/matchup`}>
           <button>Choose fighter </button>
-        </Link>{" "}
+        </Link>
       </div>
-      <p></p>
-
-      <h3></h3>
     </>
   );
 };

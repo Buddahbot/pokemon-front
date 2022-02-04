@@ -5,6 +5,9 @@ import AppRouter from "./AppRouter";
 import { PokeController } from "./context/PokeContext";
 import { ImgController } from "./context/ImgContext";
 import { ShuffleController } from "./context/ShuffleContext";
+import { ClickController } from "./context/ClickContext";
+import { PlayerController } from "./context/PlayerContext";
+// import { ComputerContext } from "./context/ComputerContext";
 
 function App() {
   return (
@@ -12,7 +15,13 @@ function App() {
       <ImgController>
         <PokeController>
           <ShuffleController>
-            <AppRouter />
+            <ClickController>
+              <PlayerController>
+                {/* <ComputerContext> */}
+                <AppRouter />
+                {/* </ComputerContext> */}
+              </PlayerController>
+            </ClickController>
           </ShuffleController>
         </PokeController>
       </ImgController>
