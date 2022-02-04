@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { PokeContext } from "../context/PokeContext";
+import { ShuffleContext } from "../context/ShuffleContext";
+
 import "../App.css";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [newPokemons, setnewPokemons] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const [shuffle, setShuffle] = useContext(ShuffleContext);
 
   const default20 = [];
 
@@ -17,14 +20,15 @@ const PokemonList = () => {
   const handleShuffle = (e) => {
     e.preventDefault();
     setClicked(true);
-    console.log("yyy");
-    var new20 = [];
+    // console.log("yyy");
+    let new20 = [];
     for (let i = 0; i < 21; i++) {
       new20.push(pokemons[Math.floor(Math.random() * pokemons.length)]);
     }
-    console.log(new20);
-
-    setnewPokemons(new20);
+    // console.log(new20);
+    // setnewPokemons(new20);
+    setShuffle(new20);
+    console.log(shuffle);
   };
 
   // const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ID}.png`;
@@ -36,11 +40,11 @@ const PokemonList = () => {
         shuffle list
       </button>
 
-      {clicked ? (
+      {shuffle ? (
         <>
           {/* <h3>Default List</h3> */}
           <div className="poke-grid">
-            {newPokemons.map((e) => {
+            {shuffle.map((e) => {
               return (
                 <Link to={`/pokemon/${e.id}`}>
                   <div className="grid-cell">

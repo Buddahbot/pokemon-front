@@ -1,5 +1,5 @@
 import "../App.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { PokeContext } from "../context/PokeContext";
 import "../App.css";
@@ -33,6 +33,12 @@ const Fighter = () => {
             {/* Sp. Attack{pokemon.base.Sp.Attack} Speed:{pokemon.base.Speed} */}
           </div>
         </div>
+        <Link to={`/`}>
+          <button>Go back </button>
+        </Link>
+        <Link to={`/matchup`}>
+          <button>Choose fighter </button>
+        </Link>{" "}
       </div>
       <p></p>
 

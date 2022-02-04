@@ -2,9 +2,8 @@ import "./winnerStyle.css";
 
 const Winner = () => {
   return (
-    <div className="container particle">
+    <div className="container ">
       <h2>Winner</h2>
-     
     </div>
   );
 };
