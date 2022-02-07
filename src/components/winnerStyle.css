@@ -1,7 +1,10 @@
 .container {
   width: 100%;
   height: 600px;
-  animation: pulse 0.5s infinite;
+  flex-direction: row;
+  animation: pulse 1.5s infinite;
+  align-items: center;
+  justify-content: center;
 }
 
 .container h2 {
@@ -11,14 +14,36 @@
   padding-top: 50px;
 }
 
+.winnerPoke {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+    height: 200px;
+    margin-top: 60px;
+}
+
 @keyframes pulse {
   0% {
-    background-color: #f7c04b;
+    background-color: #24aa2f;
   }
   50% {
-    background-color: rgb(83, 236, 142);
+    background-color: rgb(58, 175, 103);
   }
   100% {
-    background-color: rgb(234, 236, 83);
+    background-color: rgb(73, 184, 132);
   }
+}
+
+.pokeName {
+  flex-direction: column; 
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.733);
+  font-size: 20px;
+  border-radius: 10px;
+  /* width: 30%; */
 }
