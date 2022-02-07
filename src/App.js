@@ -1,17 +1,28 @@
-
-// import "./App.css"; // it can't be here because its gonna overtake my fightStyl.css file :) 
+// import "./App.css"; // it can't be here because its gonna overtake my fightStyl.css file :)
 
 import NavBar from "./components/NavBar";
 import AppRouter from "./AppRouter";
 import { PokeController } from "./context/PokeContext";
 import { ImgController } from "./context/ImgContext";
+import { ShuffleController } from "./context/ShuffleContext";
+import { ClickController } from "./context/ClickContext";
+import { PlayerController } from "./context/PlayerContext";
+// import { ComputerContext } from "./context/ComputerContext";
 
 function App() {
   return (
     <div className="App">
       <ImgController>
         <PokeController>
-          <AppRouter />
+          <ShuffleController>
+            <ClickController>
+              <PlayerController>
+                {/* <ComputerContext> */}
+                <AppRouter />
+                {/* </ComputerContext> */}
+              </PlayerController>
+            </ClickController>
+          </ShuffleController>
         </PokeController>
       </ImgController>
     </div>
