@@ -16,12 +16,12 @@ const PokemonList = () => {
               150, 123, 148, 65, 22, 143, 115, 3,
               135, 89, 34, 12];
 
-  let newNum = [];
-  newNum = fav.map((e) => parseInt(e) - 1);
+  // let newNum = [];
+  // newNum = fav.map((e) => parseInt(e) - 1);
   //console.log(newNum[0]);
 
-  for (let i = 0; i < newNum.length; i++) {
-    default20.push(pokemons[newNum[i]-1])
+  for (let i = 0; i < fav.length; i++) {
+    default20.push(pokemons[fav[i]-1])
   }
   console.log(default20)
 
