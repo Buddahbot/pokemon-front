@@ -1,4 +1,4 @@
-import "./fightStyle.css";
+import "../App.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { PokeContext } from "../context/PokeContext";
