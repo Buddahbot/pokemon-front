@@ -11,11 +11,10 @@ const Matchup = (props) => {
   const [player, setPlayer] = useContext(PlayerContext);
   const [comp, setComp] = useContext(CompContext);
 
-  
   // const { id } = useParams();
-  
+
   const { id } = pokemons[Math.floor(Math.random() * pokemons.length) - 1];
-  const pokemon = pokemons[id-1];
+  const pokemon = pokemons[id - 1];
 
   useEffect(() => {
     setComp({
@@ -28,11 +27,9 @@ const Matchup = (props) => {
       defense: pokemon.base.Defense,
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
     });
-  }, [])
+  }, []);
 
-
-
-console.log(comp)
+  console.log(comp);
   // setPlayer({
   //   id: computer.id,
   //   nameEN: computer.name.english,
@@ -46,36 +43,34 @@ console.log(comp)
 
   return (
     <>
-      <h1>Matchup</h1>
-      <>
+      {/* <h1>Matchup</h1> */}
+      <div className="matchup-main">
+        <div className="fighter-containers">
+          <div className="fighter-imageName">
+            <h3>You picked:</h3>
+            <h2>{player.nameEN}</h2> <br />
+            <h4>{player.nameJP}</h4>
+            <img src={player.image} style={{ width: "300px" }} />
+          </div>
+        </div>
         <div className="fighter-containers">
           <div className="fighter-imageName">
             <h3>
-              You picked:{player.nameEN} <br />
-              {player.nameJP}
-            </h3>
-
-            <img src={player.image} style={{ width: "300px" }} />
-          </div>
-          <Link to={`/`}>
-            <button>Go back </button>
-          </Link>
-          <Link to={`/fightcode`}>
-            <button>Ready To Fight!! </button>
-          </Link>{" "}
-        </div>
-        <div className="fighter-containers">
-          <div className="fighter-imageName">
-           <h3>
               Computer picked: {comp.nameEN} <br />
               {comp.nameJP}
-              </h3>
-              <img src={comp.image} style={{ width: "300px" }} />
-              
+            </h3>
+            <img src={comp.image} style={{ width: "300px" }} />
           </div>
-        
         </div>
-      </>
+      </div>
+      <div className="bottom-buttons">
+        <Link to={`/`}>
+          <button>Go back </button>
+        </Link>
+        <Link to={`/fightcode`}>
+          <button>Ready To Fight!! </button>
+        </Link>{" "}
+      </div>
     </>
   );
 };
