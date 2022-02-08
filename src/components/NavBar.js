@@ -4,9 +4,9 @@ import "../App.css";
 const NavBar = () => {
   return (
     <>
-      <p>
+      {/* <p>
         <i>Temporary Navbar (for navigation as we build the site):</i>
-      </p>
+      </p> */}
       <nav>
         <Link to="/">Home</Link>
         <Link to="/fighter">Fighter</Link>

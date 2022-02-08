@@ -3,27 +3,24 @@ import { useContext, useState, useEffect } from "react";
 import { PokeContext } from "../context/PokeContext";
 import { ShuffleContext } from "../context/ShuffleContext";
 import { ClickContext } from "../context/ClickContext";
+
 import "../App.css";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
-  //const [newPokemons, setnewPokemons] = useState([]);
   const [clicked, setClicked] = useContext(ClickContext);
   const [shuffle, setShuffle] = useContext(ShuffleContext);
   const default20 = [];
 
-  const fav = [25, 6, 133, 7, 130, 94, 144, 145, 146,
-              150, 123, 148, 65, 22, 143, 115, 3,
-              135, 89, 34, 12];
-
-  // let newNum = [];
-  // newNum = fav.map((e) => parseInt(e) - 1);
-  //console.log(newNum[0]);
+  const fav = [
+    25, 6, 133, 7, 130, 94, 144, 145, 146, 150, 123, 148, 65, 22, 143, 115, 3,
+    135, 89, 34, 12,
+  ];
 
   for (let i = 0; i < fav.length; i++) {
-    default20.push(pokemons[fav[i]-1])
+    default20.push(pokemons[fav[i] - 1]);
   }
-  console.log(default20)
+  console.log(default20);
 
   const handleShuffle = (e) => {
     e.preventDefault();
@@ -36,17 +33,13 @@ const PokemonList = () => {
     console.log(shuffle);
   };
 
-  // const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ID}.png`;
-
   return (
     <div className="home-container">
-      {/* <h1>PokemonList</h1> */}
       <button id="shuffleBtn" onClick={handleShuffle}>
         shuffle list
       </button>
       {!clicked ? (
         <>
-          {/* <h3>Default List</h3> */}
           <div className="poke-grid">
             {default20.map((e) => {
               return (
@@ -72,7 +65,6 @@ const PokemonList = () => {
       ) : (
         shuffle && (
           <>
-            {/* <h3>Default List</h3> */}
             <div className="poke-grid">
               {shuffle.map((e) => {
                 return (
