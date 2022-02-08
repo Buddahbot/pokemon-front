@@ -24,7 +24,7 @@ const Winner = () => {
   return (
     <div className="container ">
       <div className="buttons">
-            <NavLink className="leaderboardButton" to="/leaderboard">Leaderboard</NavLink>
+            <NavLink className="button" to="/leaderboard">Leaderboard</NavLink>
       </div>
         
           <h2>WINNER</h2>
@@ -35,7 +35,11 @@ const Winner = () => {
                 <img src={placeholderImage} className="img"/>
                 </div>
 
-          <button onClick={onClick}>Click me!</button>
+          <button className="button" onClick={onClick}>Click me!</button>
+
+          <div className="playAgainButton">
+            <NavLink className="button" to="/">PLAY AGAIN</NavLink>
+          </div>
 
           <div className="info">
           <div className="pokeName">
