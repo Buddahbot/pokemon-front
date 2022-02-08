@@ -1,9 +1,8 @@
-import "../App.css";
+import "./fightStyle.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { PokeContext } from "../context/PokeContext";
 import { PlayerContext } from "../context/PlayerContext";
-import "../App.css";
 
 const Fighter = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);

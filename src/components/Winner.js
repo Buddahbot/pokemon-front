@@ -42,7 +42,7 @@ const Winner = () => {
           </div>
 
           <div className="info">
-          <div className="pokeName">
+          <div className="pokeNames">
               <h3 >{placeholder.name.english}</h3>
                 <h3 >{placeholder.name.japanese}</h3>
           </div>
