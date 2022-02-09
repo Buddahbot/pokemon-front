@@ -5,45 +5,12 @@
     "Trebuchet MS", sans-serif;
   margin: 0px;
   padding: 0px;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-nav a {
-  margin: 20px;
+  background-image: url("./images/background-blue.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: #0aa9dd;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 header {
@@ -52,69 +19,136 @@ header {
   justify-content: center;
   align-items: center;
 
-  /* border: 2px red solid; */
+  /* border: 2px re.d solid; */
 }
 
-.home-container {
+nav {
+  background-color: #0071bc;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px;
+  font-size: 1.2rem;
+}
+
+.main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
 }
 
 .logo {
-  width: 500px;
+  width: 600px;
+  margin-top: 10px;
 }
+
+h1 {
+  font-weight: 900;
+  color: white;
+  font-size: 3rem;
+  text-shadow: 0 0 10px #004471;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #0071bc;
+}
+
 .poke-grid {
-  /* border: 2px solid red; */
   width: 70%;
   display: grid;
-
-  /* flex-direction: row;
-  flex-wrap: wrap; */
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr; */
-  grid-gap: 10px;
+  grid-gap: 7px;
 }
 
 .grid-cell {
-  /* border: 2px solid green; */
   background-color: white;
-  padding: 1.5rem 0;
+  padding: 0.7rem 0 1rem 0;
   margin: 0.3rem;
-  border: 1px solid #efefef;
-  border-radius: 0.5rem;
+  border: 2px solid #0aa9dd;
+  border-radius: 0.7rem;
   min-width: 160px;
   text-align: center;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
 }
+
+.grid-cell:hover {
+  border: 2px solid #0071bc;
+  transform: translate(-1px, -1px);
+  transition: 0.5s;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+}
+
+.grid-cell:active {
+  transform: translate(1px, 1px);
+}
+
 .grid-cell img {
   height: auto;
-  width: 200px;
+  width: 170px;
 }
 
-/* .computer-player {
-  border: 1px solid black;
-  margin: 5px;
-  padding: 10px;
-  height: 400px;
-} */
+.poke-grid a {
+  color: #0071bc;
+  text-decoration: none;
+  margin: 0px;
+}
 
-#shuffleBtn {
+.poke-grid h3 {
+  font-size: 1.7rem;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+.poke-grid p {
+  margin: 0px;
+}
+
+.poke-card {
   background-color: white;
-  /* border: 2px solid blue; */
+  padding: 0.7rem 0 1rem 0;
+  margin: 0.3rem;
+  border: 2px solid #0aa9dd;
+  border-radius: 0.7rem;
+  width: 70%;
+  text-align: center;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+button {
+  background-color: #0aa9dd;
+  border: none;
   color: white;
-  background-color: rgb(27, 27, 27);
-  /* position: fixed; */
-  /* padding: 10px 10px 0px 10px;
-  bottom: 0;
-  width: 100%; */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 20px 20px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 7px;
+}
+
+.button-green {
+  background-color: #4caf50;
 }
 
 .matchup-main {
@@ -149,4 +183,39 @@ header {
   font-size: 2rem;
   padding: 20px 30px;
   margin: 5px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #0071bc;
+  font-weight: 200;
+  /* position: fixed; */
+  /* padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%; */
+}
+
+#shuffleBtn {
+  background-color: #88e1ff;
+  border: none;
+  height: 35px;
+  color: black;
+  font-size: 1rem;
+  margin: 3px;
+  padding: 0px 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #00000099;
+  border-radius: 4px;
+  transform: translateY(10px);
+}
+
+#shuffleBtn:hover {
+  background-color: #aeebff;
+}
+
+#shuffleBtn:active {
+  transform: translateY(11px) translateX(1px);
 }
