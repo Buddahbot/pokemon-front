@@ -45,32 +45,40 @@ const Matchup = (props) => {
     <>
       {/* <h1>Matchup</h1> */}
       <div className="matchup-main">
+        <div className="matchup-main-header">
+          <h1>The Matchup:</h1>
+        </div>
+        <br />
         <div className="fighter-containers">
-          <div className="fighter-imageName">
-            <h3>You picked:</h3>
-            <h2>{player.nameEN}</h2> <br />
-            <h4>{player.nameJP}</h4>
-            <img src={player.image} style={{ width: "300px" }} />
+          <div className="poke-card">
+            <div className="fighter-imageName">
+              <h3>You picked:</h3>
+              <h2>{player.nameEN}</h2> <br />
+              <h4>{player.nameJP}</h4>
+              <img src={player.image} style={{ width: "300px" }} />
+            </div>
           </div>
         </div>
         <div className="fighter-containers">
-          <div className="fighter-imageName">
-            <h3>
-              Computer picked: {comp.nameEN} <br />
-              {comp.nameJP}
-            </h3>
-            <img src={comp.image} style={{ width: "300px" }} />
+          <div className="poke-card">
+            <div className="fighter-imageName">
+              <h3>Computer picked: </h3>
+              <h2> {comp.nameEN}</h2>
+              <h4> {comp.nameJP}</h4>
+
+              <img src={comp.image} style={{ width: "300px" }} />
+            </div>
           </div>
         </div>
       </div>
-      <div className="bottom-buttons">
-        <Link to={`/`}>
-          <button>Go back </button>
-        </Link>
-        <Link to={`/fightcode`}>
-          <button>Ready To Fight!! </button>
-        </Link>{" "}
-      </div>
+      {/* <div className="bottom-buttons"> */}
+      <Link to={`/`}>
+        <button className="button-green">Go back </button>
+      </Link>
+      <Link to={`/fightcode`}>
+        <button className="button-green">Ready To Fight!! </button>
+      </Link>{" "}
+      {/* </div> */}
     </>
   );
 };

@@ -8,18 +8,24 @@ import Matchup from "./components/Matchup";
 import Winner from "./components/Winner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import FightCode from "./components/FightCode";
 import { Route, Routes, Link } from "react-router-dom";
 import { useState, useEffect, useParams } from "react";
 import PokemonList from "./components/PokemonList";
-import FightCode from "./components/FightCode";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 const AppRouter = () => {
   return (
     <>
       <Header />
       <Routes>
-        <Route exact path="/" element={<PokemonList />} />
+        <Route exact path="/pokemonlist" element={<PokemonList />} />
+        <Route exact path="/navbar" element={<NavBar />}></Route>
         {/* <Route exact path="/" element={<Home />}></Route>{" "} */}
+        <Route exact path="/" element={<Register />}></Route>
+        <Route exact path="/login" element={<Login />} />
         <Route exact path="/pokemon/:id" element={<Fighter />}></Route>
         <Route exact path="/fightcode" element={<FightCode />}></Route>
         <Route exact path="/matchup" element={<Matchup />}></Route>

@@ -26,21 +26,29 @@ const Fighter = () => {
 
   return (
     <>
-      <div className="fighter-containers">
-        <div className="fighter-imageName">
-          <h3>
-            You picked:{player.nameEN} <br />
-            {player.nameJP}
-          </h3>
-
-          <img src={player.image} style={{ width: "300px" }} />
+      <div className="main-container">
+        <div className="main-container-header">
+          <h1>
+            You picked: <span style={{ color: "yellow" }}>{player.nameEN}</span>
+          </h1>
         </div>
-        <Link to={`/`}>
-          <button>Go back </button>
-        </Link>
-        <Link to={`/matchup`}>
-          <button>Choose fighter </button>
-        </Link>
+
+        <div className="poke-card">
+          <img src={player.image} style={{ width: "300px" }} />
+          <div className="player-stats">
+            <h3>Health Points xxx</h3>
+            <h3>Attack Points: xxx</h3>
+            <h3>Defense Points: xxx</h3>
+            <h3>Special Attack Points: xxx</h3>
+            <h3>Special Defense Points: xxx</h3>
+          </div>
+          <Link to={`/`}>
+            <button>Go back </button>
+          </Link>
+          <Link to={`/matchup`}>
+            <button className="button-green">Choose fighter </button>
+          </Link>
+        </div>
       </div>
     </>
   );

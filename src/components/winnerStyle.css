@@ -5,16 +5,15 @@
   animation: pulse 1.5s infinite;
   align-items: center;
   justify-content: center;
-
 }
 
-.buttons{
- display: flex;
+.buttons {
+  display: flex;
   justify-content: flex-end;
 }
 
 .button {
-  background-color: #4CAF50; 
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -28,10 +27,14 @@
   border-radius: 7px;
 }
 
-.button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+input {
+  margin: 5px;
 }
 
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
 
 .container h2 {
   color: white;
@@ -49,11 +52,9 @@
 }
 
 .img {
-    height: 200px;
-    margin-top: 30px;
+  height: 200px;
+  margin-top: 30px;
 }
-
-
 
 @keyframes pulse {
   0% {
@@ -67,21 +68,19 @@
   }
 }
 
-.playAgainButton{
+.playAgainButton {
   display: flex;
   justify-content: center;
 }
 
-.info{
+.info {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-
 .pokeNames {
-  flex-direction: column; 
+  flex-direction: column;
   color: aliceblue;
   background-color: rgba(0, 0, 0, 0.733);
   font-size: 20px;
@@ -91,5 +90,6 @@
 }
 
 .pokeName:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

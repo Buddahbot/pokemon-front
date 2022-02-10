@@ -19,9 +19,7 @@ function App() {
             <ClickController>
               <PlayerController>
                 <CompController>
-                {/* <ComputerContext> */}
-                <AppRouter />
-                {/* </ComputerContext> */}
+                  <AppRouter />
                 </CompController>
               </PlayerController>
             </ClickController>

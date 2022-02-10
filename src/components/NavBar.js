@@ -9,13 +9,15 @@ const NavBar = () => {
       </p> */}
       <nav>
         <Link to="/">Home</Link>
+        <Link to="/pokemonlist">PokemonList</Link>
+
         <Link to="/fighter">Fighter</Link>
         <Link to="/matchup">Matchup</Link>
         <Link to="/fight">Fight</Link>
         <Link to="/winner">Winner</Link>
         <Link to="/leaderboard">Leaderboard</Link>
-        <Link to="/pokemonlist">Pokemonlist</Link>
-        <hr />
+        <Link to="/login">Login</Link>
+        <Link to="/">Register</Link>
       </nav>
     </>
   );
