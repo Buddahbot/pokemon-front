@@ -34,30 +34,35 @@ const PokemonList = () => {
   };
 
   return (
-    <div className="home-container">
-      <button id="shuffleBtn" onClick={handleShuffle}>
-        shuffle list
-      </button>
+    <div className="main-container">
+      <div className="main-container-header">
+        <h1>Choose your fighter:</h1>
+
+        <button id="shuffleBtn" onClick={handleShuffle}>
+          shuffle list
+        </button>
+      </div>
       {!clicked ? (
         <>
           <div className="poke-grid">
-            {default20.map((e) => {
+            {default20.map((e, index) => {
               return (
-                <Link to={`/pokemon/${e.id}`}>
-                  <div className="grid-cell">
-                    <br />
-                    <img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.id}.png`}
-                      alt={e.name.english}
-                    />
-                    <h3>{e.name.english}</h3>
-                    <p>
-                      {e.name.japanese}
-                      <br />
-                      {e.id}
-                    </p>
-                  </div>
-                </Link>
+                <a key={index}>
+                  <Link to={`/pokemon/${e.id}`}>
+                    <div className="grid-cell">
+                      <img
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.id}.png`}
+                        alt={e.name.english}
+                      />
+                      <h3>{e.name.english}</h3>
+                      <p>
+                        {e.name.japanese}
+                        {/* <br /> */}
+                        {/* {e.id} */}
+                      </p>
+                    </div>
+                  </Link>
+                </a>
               );
             })}
           </div>
@@ -68,20 +73,19 @@ const PokemonList = () => {
             <div className="poke-grid">
               {shuffle.map((e) => {
                 return (
-                  <Link to={`/pokemon/${e.id}`}>
-                    <div className="grid-cell">
-                      <br />
-                      {e.id}
-                      <br />
-                      <img
-                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.id}.png`}
-                        alt={e.name.english}
-                      />
-                      <h3>{e.name.english}</h3>
-                      <p>{e.name.japanese}</p>
-                      <br />
-                    </div>
-                  </Link>
+                  <a>
+                    <Link to={`/pokemon/${e.id}`}>
+                      <div className="grid-cell">
+                        {/* {e.id} */}
+                        <img
+                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${e.id}.png`}
+                          alt={e.name.english}
+                        />
+                        <h3>{e.name.english}</h3>
+                        <p>{e.name.japanese}</p>
+                      </div>
+                    </Link>
+                  </a>
                 );
               })}
             </div>

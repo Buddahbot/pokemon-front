@@ -3,7 +3,8 @@ import "../App.css";
 const Leaderboard = () => {
   return (
     <>
-      <h2>Leaderboard</h2>
+      <h1>Leaderboard</h1>
+      <p>data goes here</p>
     </>
   );
 };
