@@ -7,16 +7,19 @@ import BG2 from "../images/bg3.jpg";
 import BG3 from "../images/bg12.jpg";
 import BG4 from "../images/forest.jpg";
 import BG5 from "../images/Ybg5.png";
+import Explosion from "../images/boom.gif";
 
 const Fight = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [fight, setFight] = useState(false);
+  const [explosion, setExplosion] = useState(false);
 
-  // const handleFight = (e) => {
-  //   e.persist();
-  //   setFight(true);
-  //   setTimeout(() => { console.log("here"); setFight(false) }, 5000);
-  // }
+  const handleFight = (e) => {
+    e.preventDefault();
+    setTimeout(() => { console.log("here"); setExplosion(true) }, 5000);
+    clearTimeout()
+  }
+
   const picArray = [BG, BG1, BG2, BG3, BG4, BG5];
 
   const randomPic = Math.floor(Math.random() * picArray.length);
@@ -53,6 +56,10 @@ const Fight = () => {
           </div>
 
         </div>
+
+        {explosion && <img src={Explosion} className={`${explosion ? "explosion" : ""}`} />}
+
+
         <div className="rightFighter">
 
           <h1 className="userName">User2</h1>
@@ -64,8 +71,13 @@ const Fight = () => {
             <h3 >{placeholder.name.english}</h3>
             <h3 >{placeholder.name.japanese}</h3>
           </div>
+
+
         </div>
-      </div><button className="FightButton" onClick={() => setFight(true)}>FIGHT!</button>
+      </div><button className="FightButton" onClick={(e) => {
+        setFight(true)
+        handleFight(e)
+      }}>FIGHT!</button>
     </div>
 
   );
