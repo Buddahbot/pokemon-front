@@ -151,15 +151,9 @@ animation-delay: 4s;
 }
 
 .explosion {
-  /* animation: test 5;
-  animation-delay: 5s; */
-/* margin-left: 150px; */
 height: 500px;
 position: absolute;
-
-animation:  .5s 5;
-animation-delay: 1s;
-animation-fill-mode: forwards;
+padding-top: -100px;
 }
 
 @keyframes test {

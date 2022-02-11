@@ -5,9 +5,8 @@ import BG from "../images/bg0.jpg";
 import BG1 from "../images/bg1.jpg";
 import BG2 from "../images/bg3.jpg";
 import BG3 from "../images/bg12.jpg";
-import BG4 from "../images/forest.jpg";
 import BG5 from "../images/Ybg5.png";
-import Explosion from "../images/boom.gif";
+import Explosion from "../images/boom2.gif";
 
 const Fight = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
@@ -20,7 +19,7 @@ const Fight = () => {
     clearTimeout()
   }
 
-  const picArray = [BG, BG1, BG2, BG3, BG4, BG5];
+  const picArray = [BG, BG1, BG2, BG3, BG5];
 
   const randomPic = Math.floor(Math.random() * picArray.length);
   const selectedPicture = picArray[randomPic];
@@ -41,7 +40,10 @@ const Fight = () => {
 
       {fight && <h1 className={`${fight ? "fightTitle" : ""}`}>POKE FIGHT!</h1>}
 
+      {explosion && <img src={Explosion} className={`${explosion ? "explosion" : ""}`} />}
+
       <div className="fighters">
+
         <div className="leftFighter">
 
           <h1 className="userName">User1</h1>
@@ -57,7 +59,7 @@ const Fight = () => {
 
         </div>
 
-        {explosion && <img src={Explosion} className={`${explosion ? "explosion" : ""}`} />}
+
 
 
         <div className="rightFighter">
