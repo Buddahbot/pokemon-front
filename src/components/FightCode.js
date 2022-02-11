@@ -5,12 +5,15 @@ import { PokeContext } from "../context/PokeContext";
 import { PlayerContext } from "../context/PlayerContext";
 import { CompContext } from "../context/CompContext";
 import { useEffect } from "react/cjs/react.development";
+import { GameContext } from "../context/GameContext";
 
 const FightCode = () => {
   const [player, setPlayer] = useContext(PlayerContext);
+  const [playerScore, setPlayerScore] = useContext(PlayerContext)
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [healthpoints, setHealthpoints] = useState();
   const [comp, setComp] = useContext(CompContext);
+  const [compScore, setCompScore] = useContext(CompContext);
   const [newHpPlayer, setNewHpPlayer] = useState();
   const [newHpComp, setNewHpComp] = useState();
   const [newDefensePlayer, setNewDefensePlayer] = useState();
@@ -18,11 +21,12 @@ const FightCode = () => {
   const [winCountPlayer, setWinCountPlayer] = useState(false);
   const [winCountComp, setWinCountComp] = useState(false);
   const [whoAttacks, setWhoAttacks] = useState();
+  const [gameCount, setGameCount] = useContext(GameContext)
 
   let navigate = useNavigate();
 
-  // let winCountPlayer = false
-  // let winCountComp = false
+  //  let winCountPlayer = false
+  //  let winCountComp = false
 
   useEffect(() => {
     setNewHpPlayer(player.hp);
@@ -33,7 +37,7 @@ const FightCode = () => {
 
   const codeLogic = () => {
     let attacker = Math.floor(Math.random() * 2 + 1);
-    console.log(attacker);
+    // console.log(attacker);
     setWhoAttacks(attacker);
     if (attacker === 1 && player.attack > comp.defense) {
       //player 1 attacks and wins
@@ -66,45 +70,90 @@ const FightCode = () => {
     } else if (newHpPlayer < 20) {
       setNewHpPlayer(0);
     }
-
-    console.log(winCountPlayer);
-    console.log(winCountComp);
+    // console.log(winCountPlayer);
+    // console.log(winCountComp);
   };
+ 
+const getWinner = () => {
+    let winnerFlag = false
+    if (newHpPlayer === 0 || newDefensePlayer === 0){ // computer won
+      return winnerFlag
+    } else if (newHpComp === 0 ||newDefenseComp === 0){ // player is winning 
+      winnerFlag = true
+      return winnerFlag
+    }
+}
+const winner = getWinner()
+console.log(winner)
+if (winner){
+  setPlayerScore(1)
+}
+
+
+
+const scores = {
+    gamesWon : playerScore,
+    gamesPlayed : gameCount
+}
+
 
   return (
     <div className="home-container">
-      <button onClick={codeLogic}>Click To Fight</button>
-
-      <h3>
+      <div className="main-container">
+      <div className="main-container-header">
+      <h1>
         {whoAttacks === 1
           ? "You Attacked!!!"
           : whoAttacks === 2
           ? "Comp Attacked You"
           : "Ready To Rumble"}
-      </h3>
+      </h1>
+      </div>
+      <button className="button-green" onClick={codeLogic}>Click To Fight</button>
+     
 
-      {newHpPlayer === 0
-        ? navigate("/winner")
+      {winner ? 'playerwon': 'computerwon'}
+      {/* {winner ? setPlayerScore(playerScore+1): setCompScore(compScore+1)}  */}
+       {/* { winner ? (
+        stats(scores)
+        navigate('/winner', state={result})
+      ) 
+      : dbpost(scorecomp)}  */}
+
+       {newHpPlayer === 0 
+        ? navigate("/loser")
         : newDefensePlayer === 0
-        ? navigate("/winner")
+        ? navigate("/loser")
         : newHpComp === 0
         ? navigate("/winner")
         : newDefenseComp === 0
         ? navigate("/winner")
-        : ""}
+        : ""} 
+<div className="poke-card">
+          <div className="two-columns">
+            <div className="fight-fighter">
+            <img src={player.image} style={{ width: "300px" }} />
 
-      <h2>Your Fighter: {player.nameEN}</h2>
-      <h3>Health Points: {newHpPlayer}</h3>
-      <h3>Attack Points: {player.attack}</h3>
-      <h3>Defense Points: {newDefensePlayer}</h3>
-      <img src={player.image} />
+      <h2>{player.nameEN}</h2>
+      <div className="player-stats">
 
-      <h2>Computer Fighter: {comp.nameEN}</h2>
-      <h3>Health Points: {newHpComp}</h3>
-      <h3>Attack Points: {comp.attack}</h3>
-      <h3>Defense Points: {newDefenseComp}</h3>
-      <img src={comp.image} />
+      <p>Health Points:</p> <p className="stat">{newHpPlayer}</p>
+
+      <p>Defense Points:</p> <p className="stat"> {newDefensePlayer}</p>
+      </div>
+</div>
+<div className="fight-fighter">
+<img src={comp.image} style={{ width: "300px" }}/>
+      <h2>{comp.nameEN}</h2>
+      <div className="player-stats">
+
+      <p>Health Points:</p> <p className="stat">{newHpComp}</p>
+     
+      <p>Defense Points:</p> <p className="stat"> {newDefenseComp}</p>
+      </div>
+      </div>
     </div>
+    </div>   </div>   </div>
   );
 };
 

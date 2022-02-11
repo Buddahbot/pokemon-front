@@ -1,15 +1,18 @@
 import "./winnerStyle.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { PokeContext } from "../context/PokeContext";
 import { PlayerContext } from "../context/PlayerContext";
+import { CompContext } from "../context/CompContext";
 import party from "party-js";
 import { NavLink } from "react-router-dom";
 
 const Winner = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [player, setPlayer] = useContext(PlayerContext);
-
-  const [score, setScore] = useState(0);
+  // const [playerScore, setPlayerScore] = useContext(PlayerContext)
+  // const [compScore, setCompScore] = useContext(CompContext);
+  const [comp, setComp] = useContext(CompContext);
+  
 
   const placeholder = pokemons[11];
 
@@ -44,7 +47,7 @@ const Winner = () => {
         </button>
 
         <div className="playAgainButton">
-          <NavLink className="button" to="/">
+          <NavLink className="button" to="/pokemonlist">
             PLAY AGAIN
           </NavLink>
         </div>
