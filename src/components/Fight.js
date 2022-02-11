@@ -82,7 +82,12 @@ const Fight = () => {
       </div><button className="FightButton" onClick={(e) => {
         setFight(true)
         handleExplo(e)
+
       }}>FIGHT!</button>
+      <button className="FightButton" onClick={(e) => {
+        setFight(false)
+        setExplosion(false)
+      }}>BACK!</button>
     </div>
 
   );

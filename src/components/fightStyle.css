@@ -153,23 +153,15 @@ animation-delay: 4s;
 .explosion {
 height: 500px;
 position: absolute;
+z-index: 4;
 padding-top: -100px;
-}
 
-@keyframes test {
-  0% {
-    transform: height(500px);
-  }
-  100% {
-    transform: height(200px);
-  }
 }
-
 
 .FightButton {
   display: flex;
   justify-content: center;
-  background-color: #640707d7; 
+  background-color: #270202dc; 
   border: none;
   color: white;
   padding: 15px 32px;
