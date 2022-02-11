@@ -1,4 +1,4 @@
-.fight {
+.fightTitle {
   color: white;
   background-color: black;
   height: 80px;
@@ -27,7 +27,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 600px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,30 +66,10 @@ animation: left-to-right 1s infinite linear ;
 animation-iteration-count: 1;
 animation-fill-mode: forwards;
 animation-delay: 4s;
+height: 200px;
+margin-top: 60px;
+transform: scaleX(-1);
 }
-
-.imgLeft-img {
-  transform: scaleX(-1);
-  height: 200px;
-  margin-top: 60px;
-}
-
-@keyframes left-to-right {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(1px, 1px) rotate(-1deg); }
-  80% { transform: translate(50px, -1px) rotate(1deg); }
-  90% { transform: translate(180px, 2px) rotate(0deg); }
-  100% { transform: translate(320px, -2px) rotate(-1deg);
-  filter: saturate(200%) }
-}
-
-
 
 .imgRight {
   height: 200px;
@@ -100,12 +80,31 @@ animation: right-to-left 1s infinite linear ;
 animation-iteration-count: 1;
 animation-fill-mode: forwards;
 animation-delay: 4s;
+
 }
 
-.imgRight-img {
-  height: 200px;
-  margin-top: 60px;
+.imgLeft-img {
+  transform: scaleX(-1);
+   height: 200px;
+  margin-top: 60px; 
 }
+
+
+@keyframes left-to-right {
+   0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); } 
+   30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(1px, 1px) rotate(-1deg); }
+  80% { transform: translate(50px, -1px) rotate(1deg); }
+  90% { transform: translate(180px, 2px) rotate(0deg); }
+  100% { transform: translate(320px, -2px) rotate(-1deg); 
+  filter: saturate(200%);
+  }
+  }
 
 @keyframes right-to-left {
   0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -118,8 +117,18 @@ animation-delay: 4s;
   70% { transform: translate(3px, 1px) rotate(-1deg); }
   80% { transform: translate(-50px, -1px) rotate(1deg); }
   90% { transform: translate(-180px, 2px) rotate(0deg); }
-  100% { transform: translate(-320px, -2px) rotate(-1deg); }
+  100% { transform: translate(-320px, -2px) rotate(-1deg); 
+    }
+    
 }
+
+
+.imgRight-img {
+  height: 200px;
+  margin-top: 60px;
+}
+
+
 
 .pokeName {
   flex-direction: column;
@@ -139,3 +148,18 @@ animation-delay: 4s;
   margin-left: 27%;
 }
 
+.FightButton {
+  display: flex;
+  justify-content: center;
+  background-color: #000000; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 7px;
+}
