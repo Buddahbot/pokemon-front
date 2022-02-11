@@ -1,15 +1,17 @@
 import "../App.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useState, useEffect, useCallback } from "react";
 import { PokeContext } from "../context/PokeContext";
 import { PlayerContext } from "../context/PlayerContext";
 import { CompContext } from "../context/CompContext";
+import { GameContext } from "../context/GameContext";
 import "../App.css";
 
 const Matchup = (props) => {
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [player, setPlayer] = useContext(PlayerContext);
   const [comp, setComp] = useContext(CompContext);
+  const [gameCount, setGameCount] = useContext(GameContext)
 
   // const { id } = useParams();
 
@@ -29,7 +31,14 @@ const Matchup = (props) => {
     });
   }, []);
 
-  console.log(comp);
+  const countGames = () => {
+    setGameCount(gameCount => gameCount + 1)
+    console.log(gameCount)
+  }
+
+  
+
+  // console.log(comp);
   // setPlayer({
   //   id: computer.id,
   //   nameEN: computer.name.english,
@@ -43,42 +52,51 @@ const Matchup = (props) => {
 
   return (
     <>
-      {/* <h1>Matchup</h1> */}
-      <div className="matchup-main">
-        <div className="matchup-main-header">
-          <h1>The Matchup:</h1>
+<div className="main-container">
+        <div className="main-container-header">
+          <h1>
+            The Matchup:
+          </h1>
         </div>
-        <br />
-        <div className="fighter-containers">
-          <div className="poke-card">
-            <div className="fighter-imageName">
-              <h3>You picked:</h3>
-              <h2>{player.nameEN}</h2> <br />
-              <h4>{player.nameJP}</h4>
-              <img src={player.image} style={{ width: "300px" }} />
-            </div>
-          </div>
-        </div>
-        <div className="fighter-containers">
-          <div className="poke-card">
-            <div className="fighter-imageName">
-              <h3>Computer picked: </h3>
-              <h2> {comp.nameEN}</h2>
-              <h4> {comp.nameJP}</h4>
 
-              <img src={comp.image} style={{ width: "300px" }} />
-            </div>
+        <div className="poke-card">
+          <div className="two-columns">
+          <div className="poke-with-stats2">
+            <h3>You picked:</h3>
+          <img src={player.image} style={{ width: "300px" }} />
+          <div className="player-stats">
+            <p>Health Points:</p> <p className="stat">{player.hp}</p>
+            <p>Attack Points:</p> <p className="stat">{player.attack}</p>
+            <p>Defense Points:</p> <p className="stat">{player.defense}</p>
+            {/* <p>Special Attack Points:</p> <p className="stat">xxx</p>
+            <p>Special Defense Points:</p> <p className="stat">xxx</p> */}
           </div>
-        </div>
-      </div>
-      {/* <div className="bottom-buttons"> */}
-      <Link to={`/`}>
-        <button className="button-green">Go back </button>
-      </Link>
-      <Link to={`/fightcode`}>
-        <button className="button-green">Ready To Fight!! </button>
-      </Link>{" "}
-      {/* </div> */}
+          </div>
+          
+          <div className="poke-with-stats2">
+          <h3>Computer picked:</h3>
+
+          <img src={comp.image} style={{ width: "300px" }} />
+          <div className="player-stats">
+            <p>Health Points:</p> <p className="stat">xxx</p>
+            <p>Attack Points:</p> <p className="stat">xxx</p>
+            <p>Defense Points:</p> <p className="stat">xxx</p>
+            {/* <p>Special Attack Points:</p> <p className="stat">xxx</p>
+            <p>Special Defense Points:</p> <p className="stat">xxx</p> */}
+          </div>
+          </div>
+          </div>
+       
+          
+          <div className="buttons-row">
+          <Link to={`/`}>
+            <button>Go back </button>
+          </Link>
+          <Link to={`/fightcode`}>
+            <button onClick={countGames} className="button-green">GO TO FIGHT </button>
+          </Link>
+          </div>
+      </div></div>
     </>
   );
 };

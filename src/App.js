@@ -8,6 +8,7 @@ import { ShuffleController } from "./context/ShuffleContext";
 import { ClickController } from "./context/ClickContext";
 import { PlayerController } from "./context/PlayerContext";
 import { CompController } from "./context/CompContext";
+import { GameController } from "./context/GameContext";
 // import { ComputerContext } from "./context/ComputerContext";
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
             <ClickController>
               <PlayerController>
                 <CompController>
-                  <AppRouter />
+                  <GameController>
+                    <AppRouter />
+                  </GameController>
                 </CompController>
               </PlayerController>
             </ClickController>
