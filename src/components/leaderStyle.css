@@ -1,0 +1,35 @@
+.container-leader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+} 
+
+
+
+.table {
+    height: 300px;
+    width: 65%;
+    background-color: rgba(245, 245, 245, 0.637);
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+   
+}
+
+.category-name  {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.h1 {
+    font-weight: 900;
+    color: rgb(57, 147, 207);
+    font-size: 22px;
+    text-shadow: 0 0 10px #ffffff;
+   padding: 20px;
+   padding-left: 30px;
+}
