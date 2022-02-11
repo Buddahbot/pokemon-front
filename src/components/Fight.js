@@ -13,9 +13,12 @@ const Fight = () => {
   const [fight, setFight] = useState(false);
   const [explosion, setExplosion] = useState(false);
 
-  const handleFight = (e) => {
+  const handleExplo = (e) => {
     e.preventDefault();
-    setTimeout(() => { console.log("here"); setExplosion(true) }, 5000);
+    setTimeout(() => {
+      console.log("here");
+      setExplosion(true)
+    }, 5000);
     clearTimeout()
   }
 
@@ -78,7 +81,7 @@ const Fight = () => {
         </div>
       </div><button className="FightButton" onClick={(e) => {
         setFight(true)
-        handleFight(e)
+        handleExplo(e)
       }}>FIGHT!</button>
     </div>
 
