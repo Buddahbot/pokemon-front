@@ -34,20 +34,24 @@ const Fighter = () => {
         </div>
 
         <div className="poke-card">
+          <div className="poke-with-stats">
           <img src={player.image} style={{ width: "300px" }} />
           <div className="player-stats">
-            <h3>Health Points xxx</h3>
-            <h3>Attack Points: xxx</h3>
-            <h3>Defense Points: xxx</h3>
-            <h3>Special Attack Points: xxx</h3>
-            <h3>Special Defense Points: xxx</h3>
+            <p>Health Points:</p> <p className="stat">{player.hp}</p>
+            <p>Attack Points:</p> <p className="stat">{player.attack}</p>
+            <p>Defense Points:</p> <p className="stat">{player.defense}</p>
+            {/* <p>Special Attack Points:</p> <p className="stat">{player["Sp. attack"]}</p> */}
+            {/* <p>Special Defense Points:</p> <p className="stat">{player.}</p> */}
           </div>
+          </div>
+          <div className="buttons-row">
           <Link to={`/`}>
             <button>Go back </button>
           </Link>
           <Link to={`/matchup`}>
             <button className="button-green">Choose fighter </button>
           </Link>
+          </div>
         </div>
       </div>
     </>

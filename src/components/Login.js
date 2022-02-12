@@ -29,7 +29,6 @@ const Login = () => {
       <div className="main-container">
         <div className="poke-card">
           <h2>Login:</h2>
-          <h3>Sign in to fight!</h3>
           <form onSubmit={testLogin}>
             <input
               type="text"
@@ -38,6 +37,7 @@ const Login = () => {
               name="Playername"
               onChange={(e) => setName(e.target.value)}
             ></input>
+            
             <input
               placeholder="enter password"
               value={password}

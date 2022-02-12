@@ -28,7 +28,7 @@ const Register = () => {
       <div className="main-container">
         <div className="poke-card">
           <h2>Register:</h2>
-          <h3>Sign up to fight!</h3>
+          {/* <h3>Sign up to fight!</h3> */}
           <form onSubmit={createUser}>
             <input
               placeholder="enter Playername"
