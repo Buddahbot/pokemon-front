@@ -130,7 +130,7 @@ const FightCode = () => {
         <h3>{whoAttacks === 1
           ? "You attack!"
           : whoAttacks === 2
-            ? "Computer attack you!"
+            ? "Computer attacks you!"
             : "Ready To Rumble!"}
         </h3>
       </div>
