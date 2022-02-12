@@ -60,6 +60,7 @@ nav a {
 }
 .main-container-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
@@ -99,6 +100,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 7px;
+  margin-top: 30px;
 }
 
 .grid-cell {
@@ -202,6 +204,11 @@ form {
   flex-direction: column;
   align-items: center;
   width: 70%;
+}
+
+.input-search {
+width: 50%;
+height: 50px;
 }
 
 button {
