@@ -51,7 +51,7 @@ const Winner = () => {
         <button className="button" onClick={onClick}>Click me!</button>
 
         <div className="playAgainButton">
-          <NavLink className="button" to="/">PLAY AGAIN</NavLink>
+          <NavLink className="button" to="/pokemonlist">PLAY AGAIN</NavLink>
         </div>
 
         <div className="info">
