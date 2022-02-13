@@ -10,6 +10,7 @@ const Fighter = () => {
 
   const { id } = useParams();
   const pokemon = pokemons[id - 1];
+  console.log(pokemon);
 
   useEffect(() => {
     setPlayer({
@@ -50,12 +51,12 @@ const Fighter = () => {
           </div>
           </div>
           <div className="buttons-row">
-          <Link to={`/`}>
-            <button>Go back </button>
-          </Link>
-          <Link to={`/matchup`}>
-            <button className="button-green">Choose fighter </button>
-          </Link>
+            <Link to={`/`}>
+              <button>Go back </button>
+            </Link>
+            <Link to={`/matchup`}>
+              <button className="button-green">Choose fighter </button>
+            </Link>
           </div>
         </div>
       </div>

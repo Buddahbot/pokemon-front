@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Press+Start+2P&family=VT323&display=swap");
 
 * {
-  border: 1px dotted lightgrey;
+  /* border: 1px dotted lightgrey; */
 }
 
 .App {
@@ -60,6 +60,7 @@ nav a {
 }
 .main-container-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 70%;
@@ -99,6 +100,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 7px;
+  margin-top: 30px;
 }
 
 .grid-cell {
@@ -162,7 +164,7 @@ h3 {
 .poke-with-stats {
   display: flex;
   flex-direction: row;
-  padding: 5px;
+  padding: 15px;
   align-items: flex-start;
 }
 
@@ -176,10 +178,12 @@ h3 {
 .player-stats {
   margin-left: 20px;
   display: grid;
+  /* height: 100px; */
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(6/25px);
   text-align: left;
-  grid-gap: 10px;
+  /* grid-gap: 10px; */
+  grid-row-gap: 0px;
   font-size: 1.2rem;
   /* border: 3px solid red; */
 }
@@ -188,8 +192,17 @@ h3 {
   font-weight: 900;
 }
 
+.player-stats p {
+  /* border: 1px dotted lightgrey; */
+
+  border-bottom: 1px solid lightgrey;
+  /* border-right: 1px solid grey; */
+  padding: 5px;
+}
+
 .stat {
   font-weight: 200;
+  text-align: right;
 }
 
 input {
@@ -202,6 +215,11 @@ form {
   flex-direction: column;
   align-items: center;
   width: 70%;
+}
+
+.input-search {
+  width: 50%;
+  height: 50px;
 }
 
 button {
