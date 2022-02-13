@@ -1,4 +1,89 @@
-//old one : 
+// new code with search button:
+
+import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { PokeContext } from "../context/PokeContext";
+import "../App.css";
+
+const PokemonList = () => {
+  const favoritePokemonNumbers = [
+    25, 6, 133, 7, 130, 94, 144, 145, 146, 150, 123, 148, 65, 22, 143, 115, 3,
+    135, 89, 34, 12,
+  ];
+
+  const MAX_DISPLAYED = 20;
+
+  const [allPokemons] = useContext(PokeContext);
+  const [displayedPokemons, setDisplayedPokemons] = useState(
+    favoritePokemonNumbers.map((nr) => allPokemons[nr - 1])
+  );
+
+  const handleSearch = (e) => {
+    setDisplayedPokemons(
+      [...allPokemons]
+        .filter((pokemon) =>
+          pokemon.name.english
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase())
+        )
+        .slice(0, MAX_DISPLAYED)
+    );
+  };
+
+  const handleShuffle = (e) => {
+    e.preventDefault();
+    setDisplayedPokemons(
+      [...allPokemons].sort(() => 0.5 - Math.random()).slice(0, MAX_DISPLAYED)
+    );
+  };
+
+  return (
+    <div className="main-container">
+      <div className="main-container-header">
+        <h1>Choose your fighter:</h1>
+
+        <form className="form-inline my-2 my-lg-0">
+          <input
+            className="form-control mr-sm-2 input-search"
+            type="text"
+            placeholder="Search Pokemons... "
+            onChange={handleSearch}
+          />
+        </form>
+
+        <button id="shuffleBtn" onClick={handleShuffle}>
+          shuffle list
+        </button>
+      </div>
+
+      <div className="poke-grid">
+        {displayedPokemons.map((pokemon) => {
+          return (
+            <Link to={`/pokemon/${pokemon.id}`}>
+              <div className="grid-cell">
+                <br />
+                <img
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                  alt={pokemon.name.english}
+                />
+                <h3>{pokemon.name.english}</h3>
+                <p>
+                  {pokemon.name.japanese}
+                  <br />
+                  {pokemon.id}
+                </p>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default PokemonList;
+
+//old one :
 
 // import { Link } from "react-router-dom";
 // import { useContext, useState, useEffect } from "react";
@@ -100,79 +185,3 @@
 // };
 
 // export default PokemonList;
-
-// new code with search button:
-
-import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
-import { PokeContext } from "../context/PokeContext";
-import "../App.css";
-
-const PokemonList = () => {
-  const favoritePokemonNumbers = [25, 6, 133, 7, 130, 94, 144, 145, 146,
-    150, 123, 148, 65, 22, 143, 115, 3,
-    135, 89, 34, 12];
-
-  const MAX_DISPLAYED = 20
-
-  const [allPokemons] = useContext(PokeContext);
-  const [displayedPokemons, setDisplayedPokemons] = useState(favoritePokemonNumbers.map(nr => allPokemons[nr - 1]));
-
-  const handleSearch = (e) => {
-    setDisplayedPokemons(
-      [...allPokemons]
-        .filter(pokemon => pokemon.name.english.toLowerCase().includes(e.target.value.toLowerCase()))
-        .slice(0, MAX_DISPLAYED)
-    )
-  }
-
-  const handleShuffle = (e) => {
-    e.preventDefault();
-    setDisplayedPokemons(
-      [...allPokemons]
-        .sort(() => 0.5 - Math.random())
-        .slice(0, MAX_DISPLAYED));
-  };
-
-  return (
-    <div className="main-container">
-      <div className="main-container-header">
-        <h1>Choose your fighter:</h1>
-
-        <form className="form-inline my-2 my-lg-0" >
-          <input className="form-control mr-sm-2 input-search" type="text" placeholder="Search Pokemons... " onChange={handleSearch} />
-        </form>
-
-        <button id="shuffleBtn" onClick={handleShuffle}>
-          shuffle list
-        </button>
-      </div>
-
-
-
-      <div className="poke-grid">
-        {displayedPokemons.map((pokemon) => {
-          return (
-            <Link to={`/pokemon/${pokemon.id}`}>
-              <div className="grid-cell">
-                <br />
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                  alt={pokemon.name.english}
-                />
-                <h3>{pokemon.name.english}</h3>
-                <p>
-                  {pokemon.name.japanese}
-                  <br />
-                  {pokemon.id}
-                </p>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-export default PokemonList;
