@@ -1,0 +1,61 @@
+* {
+  /* border: 1px dotted grey; */
+}
+
+.fight2-img {
+  width: 300px;
+  margin: 20px;
+}
+
+h4 {
+  text-align: center;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+.fighting-ring {
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.action-box {
+  background-color: white;
+  width: 800px;
+  padding: 15px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 15px;
+  justify-content: space-between;
+}
+
+.action-buttons button {
+  background-color: black;
+  margin: 3px;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.action-report {
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
+  width: 440px;
+  /* color: black; */
+  font-size: 1.2rem;
+  animation: action1;
+}
+
+.health-bar-player,
+.health-bar-comp {
+  background-color: #0f0;
+  width: 100%;
+  border: 1px;
+  border-radius: 5px;
+  height: 25px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  padding: 2px;
+}

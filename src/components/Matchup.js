@@ -89,6 +89,12 @@ const Matchup = (props) => {
                 GO TO FIGHT{" "}
               </button>
             </Link>
+            <br />
+            <Link to={`/fight2`}>
+              <button onClick={countGames} className="button-green">
+                FIGHT ALTERNATIVE{" "}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
