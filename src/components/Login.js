@@ -7,11 +7,14 @@ const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  // this is a usability feature that confirms to the user that they have logged in:
+  const [confirmation, setConfirmation] = useState("");
+
   let navigate = useNavigate();
 
   const testLogin = (e) => {
     e.preventDefault();
-
+    console.log("login triggered");
     const user = {
       name: name,
       password: password,
@@ -19,6 +22,7 @@ const Login = () => {
 
     login(user).then((res) => {
       if (res) {
+        console.log("navigating now...");
         navigate("/pokemonlist");
       }
     });
