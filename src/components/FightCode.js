@@ -163,9 +163,9 @@ const FightCode = () => {
           <div className="pokeName">
             <h3 >{player.nameEN}</h3>
 
-            <p>Health Points:</p> <p className="stat">{currentHpPlayer}</p>
+            <p>Health Points:</p> <p className="">{currentHpPlayer}</p>
 
-            <p>Defense Points:</p> <p className="stat"> {currentDefensePlayer}</p>
+            <p>Defense Points:</p> <p className=""> {currentDefensePlayer}</p>
 
           </div>
 
@@ -179,9 +179,9 @@ const FightCode = () => {
           <div className="pokeName">
             <h3 >{comp.nameEN}</h3>
 
-            <p>Health Points:</p> <p className="stat">{currentHpComp}</p>
+            <p>Health Points:</p> <p className="">{currentHpComp}</p>
 
-            <p>Defense Points:</p> <p className="stat"> {currentDefenseComp}</p>
+            <p>Defense Points:</p> <p className=""> {currentDefenseComp}</p>
           </div>
 
         </div>
