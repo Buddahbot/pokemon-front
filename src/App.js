@@ -9,6 +9,7 @@ import { ClickController } from "./context/ClickContext";
 import { PlayerController } from "./context/PlayerContext";
 import { CompController } from "./context/CompContext";
 import { GameController } from "./context/GameContext";
+// import { BgController } from "./context/BgContext";
 // import { ComputerContext } from "./context/ComputerContext";
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
               <PlayerController>
                 <CompController>
                   <GameController>
+                    {/* <BgController> */}
                     <AppRouter />
+                    {/* </BgController> */}
                   </GameController>
                 </CompController>
               </PlayerController>

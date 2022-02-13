@@ -289,6 +289,7 @@ button:hover {
 .two-columns {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   /* border: 1px blue solid; */
 }
 
