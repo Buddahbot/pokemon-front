@@ -16,7 +16,7 @@ import Explosion from "../images/boom2.gif";
 
 const FightCode = () => {
   const [player, setPlayer] = useContext(PlayerContext);
-  const [playerScore, setPlayerScore] = useContext(PlayerContext)
+  const [playerScore, setPlayerScore] = useContext(PlayerContext);
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [healthpoints, setHealthpoints] = useState();
   const [comp, setComp] = useContext(CompContext);
@@ -28,7 +28,7 @@ const FightCode = () => {
   const [winCountPlayer, setWinCountPlayer] = useState(false);
   const [winCountComp, setWinCountComp] = useState(false);
   const [whoAttacks, setWhoAttacks] = useState();
-  const [gameCount, setGameCount] = useContext(GameContext)
+  const [gameCount, setGameCount] = useContext(GameContext);
   const [fight, setFight] = useState(false);
   const [explosion, setExplosion] = useState(false);
 
@@ -49,35 +49,35 @@ const FightCode = () => {
     if (attacker === 1 && player.attack > comp.defense) {
       //player 1 attacks and wins
       setCurrentDefenseComp(currentDefenseComp * 0.5);
-      setCurrentRoundWinner(player)
+      setCurrentRoundWinner(player);
     } else if (attacker === 1 && player.attack < comp.defense) {
       // player 1 attacks and loses
       setCurrentHpPlayer(currentHpPlayer * 0.5);
-      setCurrentRoundWinner(comp)
+      setCurrentRoundWinner(comp);
     } else if (attacker === 2 && comp.attack > player.defense) {
       // player 2 attacks and wins
       setCurrentDefensePlayer(currentDefensePlayer * 0.5);
-      setCurrentRoundWinner(comp)
+      setCurrentRoundWinner(comp);
     } else if (attacker === 2 && comp.attack < player.defense) {
       // player 2 attacks and loses
       setCurrentHpComp(currentHpComp * 0.5);
-      setCurrentRoundWinner(player)
+      setCurrentRoundWinner(player);
     } else {
       const tryAgain = "No one wins this round. You are both so strong!!";
       console.log(tryAgain);
     }
 
     if (currentDefenseComp < 20) {
-      setCurrentDefenseComp(0)
-      setWinCountPlayer(true)
+      setCurrentDefenseComp(0);
+      setWinCountPlayer(true);
     } else if (currentHpComp < 20) {
-      setCurrentHpComp(0)
-      setWinCountPlayer(true)
+      setCurrentHpComp(0);
+      setWinCountPlayer(true);
     } else if (currentDefensePlayer < 20) {
-      setCurrentDefensePlayer(0)
-      setWinCountComp(true)
+      setCurrentDefensePlayer(0);
+      setWinCountComp(true);
     } else if (currentHpPlayer < 20) {
-      setCurrentHpPlayer(0)
+      setCurrentHpPlayer(0);
     }
   };
 
@@ -86,7 +86,7 @@ const FightCode = () => {
   //     return 1
   //   }
 
-  //   if (currentHpComp === 0 || currentDefenseComp === 0) { // player is winning 
+  //   if (currentHpComp === 0 || currentDefenseComp === 0) { // player is winning
   //     return 2
   //   }
 
@@ -108,95 +108,111 @@ const FightCode = () => {
     e.preventDefault();
     setTimeout(() => {
       console.log("here");
-      setExplosion(true)
+      setExplosion(true);
     }, 5000);
-    clearTimeout()
-  }
+    clearTimeout();
+  };
 
   const picArray = [BG, BG1, BG2, BG3, BG5];
 
   const randomPic = Math.floor(Math.random() * picArray.length);
   const selectedPicture = picArray[randomPic];
 
-
   return (
-
     <div style={{ backgroundImage: `url(${selectedPicture})` }} className="bg ">
-
       <div className="fightTitle-div">
-        {fight && <h1 className={`${fight ? "fightTitle" : ""}`}>POKE FIGHT!</h1>}
+        {fight && (
+          <h1 className={`${fight ? "fightTitle" : ""}`}>POKE FIGHT!</h1>
+        )}
       </div>
 
       <div className="whoAttacked">
-        <h3>{whoAttacks === 1
-          ? "You attack!"
-          : whoAttacks === 2
+        <h3>
+          {whoAttacks === 1
+            ? "You attack!"
+            : whoAttacks === 2
             ? "Computer attacks you!"
             : "Ready To Rumble!"}
         </h3>
       </div>
 
-      <div style={{ color: "white" }} className='whoWon'>
-        {fight && explosion && <h2 >{(currentRoundWinner === player) ? 'Player won' : (currentRoundWinner === comp) ? 'Computer won' : ''}</h2>}
+      <div style={{ color: "white" }} className="whoWon">
+        {fight && explosion && (
+          <h2>
+            {currentRoundWinner === player
+              ? "Player won"
+              : currentRoundWinner === comp
+              ? "Computer won"
+              : ""}
+          </h2>
+        )}
       </div>
 
-      {explosion && <img src={Explosion} className={`${explosion ? "explosion" : ""}`} />}
+      {explosion && (
+        <img src={Explosion} className={`${explosion ? "explosion" : ""}`} />
+      )}
 
       {currentHpPlayer === 0
         ? navigate("/loser")
         : currentDefensePlayer === 0
-          ? navigate("/loser")
-          : currentHpComp === 0
-            ? navigate("/winner")
-            : currentDefenseComp === 0
-              ? navigate("/winner")
-              : ""}
+        ? navigate("/loser")
+        : currentHpComp === 0
+        ? navigate("/winner")
+        : currentDefenseComp === 0
+        ? navigate("/winner")
+        : ""}
 
       <div className="fighters">
-
         <div className="leftFighter">
-
-          <div >
-            <img src={player.image} className={`${fight ? "imgLeft" : "imgLeft-img"}`} />
+          <div>
+            <img
+              src={player.image}
+              className={`${fight ? "imgLeft" : "imgLeft-img"}`}
+            />
           </div>
 
           <div className="pokeName">
-            <h3 >{player.nameEN}</h3>
-
+            <h3>{player.nameEN}</h3>
             <p>Health Points:</p> <p className="">{currentHpPlayer}</p>
-
             <p>Defense Points:</p> <p className=""> {currentDefensePlayer}</p>
-
           </div>
-
         </div>
 
         <div className="rightFighter">
-
-          <div >
-            <img src={comp.image} className={`${fight ? "imgRight" : "imgRight-img"}`} />
+          <div>
+            <img
+              src={comp.image}
+              className={`${fight ? "imgRight" : "imgRight-img"}`}
+            />
           </div>
           <div className="pokeName">
-            <h3 >{comp.nameEN}</h3>
-
+            <h3>{comp.nameEN}</h3>
             <p>Health Points:</p> <p className="">{currentHpComp}</p>
-
             <p>Defense Points:</p> <p className=""> {currentDefenseComp}</p>
           </div>
-
         </div>
       </div>
       <div className="buttons-fight-back">
-        <button className="FightButton" onClick={(e) => {
-          setFight(true)
-          handleExplo(e)
-          codeLogic()
-        }}>FIGHT!</button>
+        <button
+          className="FightButton"
+          onClick={(e) => {
+            setFight(true);
+            handleExplo(e);
+            codeLogic();
+          }}
+        >
+          FIGHT!
+        </button>
 
-        <button className="FightButton" onClick={(e) => {
-          setFight(false)
-          setExplosion(false)
-        }}>BACK!</button>
+        <button
+          className="FightButton"
+          onClick={(e) => {
+            setFight(false);
+            setExplosion(false);
+          }}
+        >
+          BACK!
+        </button>
       </div>
     </div>
   );

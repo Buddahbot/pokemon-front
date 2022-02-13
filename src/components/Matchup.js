@@ -48,7 +48,8 @@ const Matchup = (props) => {
         <div className="poke-card">
           <div className="two-columns">
             <div className="poke-with-stats2">
-              <h3>You picked:</h3>
+              <h2 style={{ marginTop: "20px" }}>{player.nameEN}</h2>
+              <h5 style={{ color: "#aaa" }}>You</h5>
               <img src={player.image} style={{ width: "300px" }} />
               <div className="player-stats">
                 <p>Health:</p> <p className="stat">{player.hp}</p>
@@ -60,10 +61,12 @@ const Matchup = (props) => {
                 <p className="stat">{player.specialDefense}</p>
               </div>
             </div>
-
+            <div>
+              <h3 style={{ transform: "translateY(30px)" }}>vs</h3>
+            </div>
             <div className="poke-with-stats2">
-              <h3>Computer picked:</h3>
-
+              <h2 style={{ marginTop: "20px" }}>{comp.nameEN}</h2>
+              <h5 style={{ color: "#aaa" }}>Computer</h5>
               <img src={comp.image} style={{ width: "300px" }} />
               <div className="player-stats">
                 <p>Health:</p> <p className="stat">{comp.hp}</p>

@@ -31,12 +31,11 @@ const Fighter = () => {
     <>
       <div className="main-container">
         <div className="main-container-header">
-          <h1>
-            You picked: <span style={{ color: "yellow" }}>{player.nameEN}</span>
-          </h1>
+          <h1>You picked:</h1>
         </div>
 
         <div className="poke-card">
+          <h2 style={{ marginTop: "20px" }}>{player.nameEN}</h2>
           <div className="poke-with-stats">
             <img src={player.image} style={{ width: "300px" }} />
             <div className="player-stats">
