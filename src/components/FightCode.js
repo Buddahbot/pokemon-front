@@ -13,6 +13,7 @@ import BG2 from "../images/bg3.jpg";
 import BG3 from "../images/bg12.jpg";
 import BG5 from "../images/Ybg5.png";
 import Explosion from "../images/boom2.gif";
+import { BackgroundContext } from "../context/BackgroundContext";
 
 const FightCode = () => {
   const [player, setPlayer] = useContext(PlayerContext);
@@ -31,6 +32,8 @@ const FightCode = () => {
   const [gameCount, setGameCount] = useContext(GameContext);
   const [fight, setFight] = useState(false);
   const [explosion, setExplosion] = useState(false);
+
+  const [bgPic, setBgPic] = useState("");
 
   const [currentRoundWinner, setCurrentRoundWinner] = useState({});
 
@@ -113,13 +116,21 @@ const FightCode = () => {
     clearTimeout();
   };
 
+  //set randomized background image:
   const picArray = [BG, BG1, BG2, BG3, BG5];
 
-  const randomPic = Math.floor(Math.random() * picArray.length);
-  const selectedPicture = picArray[randomPic];
+  useEffect(() => {
+    const setPic = () => {
+      let selectedPicture;
+      const randomPic = Math.floor(Math.random() * picArray.length);
+      selectedPicture = picArray[randomPic];
+      setBgPic(selectedPicture);
+    };
+    setPic();
+  }, []);
 
   return (
-    <div style={{ backgroundImage: `url(${selectedPicture})` }} className="bg ">
+    <div style={{ backgroundImage: `url(${bgPic})` }} className="bg ">
       <div className="fightTitle-div">
         {fight && (
           <h1 className={`${fight ? "fightTitle" : ""}`}>POKE FIGHT!</h1>
