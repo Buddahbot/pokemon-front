@@ -20,6 +20,9 @@ const Fighter = () => {
       hp: pokemon.base.HP,
       attack: pokemon.base.Attack,
       defense: pokemon.base.Defense,
+      spAttack: pokemon.base['Sp. Attack'],
+      spDefense: pokemon.base['Sp. Defense'],
+      speed: pokemon.base.Speed,
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
     });
   }, []);
@@ -37,11 +40,13 @@ const Fighter = () => {
           <div className="poke-with-stats">
           <img src={player.image} style={{ width: "300px" }} />
           <div className="player-stats">
+            <p>Type:</p> <p className="stat">{player.type}</p>
             <p>Health Points:</p> <p className="stat">{player.hp}</p>
             <p>Attack Points:</p> <p className="stat">{player.attack}</p>
             <p>Defense Points:</p> <p className="stat">{player.defense}</p>
-            {/* <p>Special Attack Points:</p> <p className="stat">{player["Sp. attack"]}</p> */}
-            {/* <p>Special Defense Points:</p> <p className="stat">{player.}</p> */}
+            <p>Special Attack Points:</p> <p className="stat">{player.spAttack}</p>
+            <p>Special Defense Points:</p> <p className="stat">{player.spDefense}</p>
+            <p>Speed:</p> <p className="stat">{player.speed}</p>
           </div>
           </div>
           <div className="buttons-row">

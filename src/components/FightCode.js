@@ -91,10 +91,42 @@ if (winner){
 
 
 
-const scores = {
-    gamesWon : playerScore,
-    gamesPlayed : gameCount
-}
+// const getWinner = () => {
+  //   let winnerFlag = false
+  //   if (newHpPlayer === 0 || newDefensePlayer === 0){ // computer won
+  //     setPlayerScore(0)
+  //     return winnerFlag
+  //   } else if (newHpComp === 0 ||newDefenseComp === 0){ // player is winning 
+  //     winnerFlag = true
+  //     setPlayerScore(1)
+  //     return winnerFlag
+  //   }else{
+  //     setPlayerScore(0)
+  //     return winnerFlag
+  //   }
+  // }
+  // const winner = getWinner()
+  // console.log(winner)
+  //console.log(playerScore)
+
+  
+  
+  // useEffect(() => {
+  //   const scores = {
+  //     gamesWon : playerScore,
+  //     gamesPlayed : gameCount
+  //   }
+  //   stats(scores).then((res) =>{
+  //     if (res){
+  //       if (winner){
+  //         navigate("/Winner")
+  //       } else if (!winner){
+  //         navigate("/Loser")
+  //       }
+  //     }
+  //   })
+  // }, []);
+
 
 
   return (
