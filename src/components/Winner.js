@@ -28,7 +28,7 @@ const Winner = () => {
   };
 
   return (
-    <div className="container ">
+    <div className="container-winner ">
       <div className="buttons">
         <NavLink className="button" to="/leaderboard">Leaderboard</NavLink>
       </div>
