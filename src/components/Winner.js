@@ -9,9 +9,7 @@ import { NavLink } from "react-router-dom";
 const Winner = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [player, setPlayer] = useContext(PlayerContext);
-  // const [playerScore, setPlayerScore] = useContext(PlayerContext)
-  // const [compScore, setCompScore] = useContext(CompContext);
-  const [comp, setComp] = useContext(CompContext);
+
 
 
   const placeholder = pokemons[11];
@@ -45,7 +43,7 @@ const Winner = () => {
       <div className="winnerPoke">
 
         <div className="">
-          <img src={placeholderImage} className="img" />
+          <img src={player.image} className="img" />
         </div>
 
         <button className="button" onClick={onClick}>Click me!</button>
@@ -56,8 +54,8 @@ const Winner = () => {
 
         <div className="info">
           <div className="pokeNames">
-            <h3 >{placeholder.name.english}</h3>
-            <h3 >{placeholder.name.japanese}</h3>
+            <h3 >{player.nameEN}</h3>
+            <h3 >{player.nameJP}</h3>
           </div>
         </div>
 
