@@ -73,7 +73,7 @@ nav a {
   align-items: center;
   width: 100%;
   text-align: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .logo {
@@ -302,7 +302,7 @@ button:hover {
   align-items: center;
   margin: 50px;
   width: 100%;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   text-align: center;
 }
 
