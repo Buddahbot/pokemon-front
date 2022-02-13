@@ -9,7 +9,7 @@ import { ClickController } from "./context/ClickContext";
 import { PlayerController } from "./context/PlayerContext";
 import { CompController } from "./context/CompContext";
 import { GameController } from "./context/GameContext";
-// import { BgController } from "./context/BgContext";
+import { BackgroundController } from "./context/BackgroundContext";
 // import { ComputerContext } from "./context/ComputerContext";
 
 function App() {
