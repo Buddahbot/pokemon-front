@@ -43,6 +43,11 @@ nav a {
   font-size: 1.2rem;
 }
 
+nav a:active,
+nav a:hover {
+  color: yellow;
+}
+
 .matchup-main {
   width: 90%;
   display: flex;
@@ -172,7 +177,11 @@ h3 {
   display: flex;
   flex-direction: column;
   padding: 5px;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.poke-with-stats2 h3 {
+  text-align: center;
 }
 
 .player-stats {
