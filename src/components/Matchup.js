@@ -78,7 +78,7 @@ const Matchup = (props) => {
           </div>
 
           <div className="buttons-row">
-            <Link to={`/`}>
+            <Link to={`/pokemon/${player.id}`}>
               <button>Go back </button>
             </Link>
             <Link to={`/fightcode`}>

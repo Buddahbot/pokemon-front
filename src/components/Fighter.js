@@ -50,7 +50,7 @@ const Fighter = () => {
             </div>
           </div>
           <div className="buttons-row">
-            <Link to={`/`}>
+            <Link to={`/pokemonlist`}>
               <button>Go back </button>
             </Link>
             <Link to={`/matchup`}>
