@@ -164,7 +164,7 @@ h3 {
 .poke-with-stats {
   display: flex;
   flex-direction: row;
-  padding: 5px;
+  padding: 15px;
   align-items: flex-start;
 }
 
@@ -178,10 +178,12 @@ h3 {
 .player-stats {
   margin-left: 20px;
   display: grid;
+  /* height: 100px; */
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(6/25px);
   text-align: left;
-  grid-gap: 10px;
+  /* grid-gap: 10px; */
+  grid-row-gap: 0px;
   font-size: 1.2rem;
   /* border: 3px solid red; */
 }
@@ -190,8 +192,17 @@ h3 {
   font-weight: 900;
 }
 
+.player-stats p {
+  /* border: 1px dotted lightgrey; */
+
+  border-bottom: 1px solid lightgrey;
+  /* border-right: 1px solid grey; */
+  padding: 5px;
+}
+
 .stat {
   font-weight: 200;
+  text-align: right;
 }
 
 input {
@@ -207,8 +218,8 @@ form {
 }
 
 .input-search {
-width: 50%;
-height: 50px;
+  width: 50%;
+  height: 50px;
 }
 
 button {
