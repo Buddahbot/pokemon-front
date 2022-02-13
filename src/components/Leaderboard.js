@@ -12,24 +12,16 @@ const Leaderboard = () => {
           <h1 className="h1">Games Played</h1>
           <h1 className="h1">Games Won</h1>
 
-
-
         </div>
 
-
-
         <div>
-          <div className="name">
-
+          <div className="category-name ">
+            <h2 className="content-leader bold">Basti</h2>
+            <h2 className="content-leader" >41</h2>
+            <h2 className="content-leader">32</h2>
           </div>
 
-          <div className="played-games">
 
-          </div>
-
-          <div className="won-games">
-
-          </div>
 
         </div>
 
