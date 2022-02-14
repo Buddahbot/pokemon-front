@@ -48,6 +48,18 @@ nav a:hover {
   color: yellow;
 }
 
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input {
+  width: 350px;
+  margin: 10px;
+}
+
 .matchup-main {
   width: 90%;
   display: flex;
@@ -339,7 +351,7 @@ button:hover {
   background-color: #88e1ff;
   border: none;
   height: 35px;
-  width: 120px;
+  width: 110px;
   color: black;
   font-size: 0.8rem;
   margin: 3px;
@@ -347,7 +359,7 @@ button:hover {
   cursor: pointer;
   box-shadow: 2px 2px 5px #00000099;
   border-radius: 4px;
-  transform: translateY(10px);
+  /* transform: translateY(10px); */
 }
 
 #shuffleBtn:hover {

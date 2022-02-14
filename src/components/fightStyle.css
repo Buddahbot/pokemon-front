@@ -1,3 +1,8 @@
+* {
+  /* border: 1px dotted grey;
+  padding: 2px; */
+}
+
 .bg {
   background-repeat: no-repeat;
   background-position: center;
@@ -9,11 +14,17 @@
   justify-content: center;
 }
 
-.fightTitle-div{
+.fightTitle-div {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.fight-message {
+  color: white;
+  font-size: 2rem;
+  text-shadow: 0 0 5px black;
 }
 
 .fightTitle {
@@ -23,7 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fightMessage .5s 5;
+  animation: fightMessage 0.5s 5;
   animation-delay: 1s;
   animation-fill-mode: forwards;
   width: 50%;
@@ -45,13 +56,12 @@
   
 } */
 
-.whoWon h2{
-  animation: fightMessage .5s 5;
+.whoWon h2 {
+  animation: fightMessage 0.5s 5;
   animation-delay: 1s;
   animation-fill-mode: forwards;
   color: white;
 }
-
 
 @keyframes fightMessage {
   0% {
@@ -65,10 +75,17 @@
   }
 }
 
-.fighters{
-   display: flex;
+.fighters {
+  width: 1000px;
+
+  display: flex;
   flex-direction: row;
-  width: 1200px;
+  justify-content: center;
+  align-items: flex-end;
+
+  /* display: grid;
+  grid-template-columns: 2fr 1fr 2fr; */
+
   /* border: 2px red solid; */
 }
 
@@ -77,13 +94,24 @@
   width: 30%;
   height: 100%;
   text-align: center;
-  margin-left: 7%;
+
+  /* margin-left: 7%; */
+  /* border: 2px solid green; */
+}
+
+.rightFighter {
+  /* display: block; */
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  /* margin-left: 27%; */
+  /* border: 2px solid green; */
 }
 
 .userName {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   color: aliceblue;
   background-color: rgba(0, 0, 0, 0.733);
   font-size: 20px;
@@ -92,86 +120,130 @@
 }
 
 .userName:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .imgLeft {
-transform: translateX(0%);
-transition: transform 1s ease-in-out; 
-animation: left-to-right 1s infinite linear ;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-animation-delay: 4s;
-height: 200px;
-margin-top: 60px;
-transform: scaleX(-1);
+  transform: translateX(0%);
+  transition: transform 1s ease-in-out;
+  animation: left-to-right 1s infinite linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+  height: 200px;
+  margin-top: 60px;
+  transform: scaleX(-1);
 }
 
 .imgRight {
   height: 200px;
   margin-top: 60px;
   transform: translateX(0%);
-  transition: transform 1s ease-in-out; 
-animation: right-to-left 1s infinite linear ;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-animation-delay: 4s;
-
+  transition: transform 1s ease-in-out;
+  animation: right-to-left 1s infinite linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
 }
 
 .imgLeft-img {
   transform: scaleX(-1);
-   height: 200px;
-  margin-top: 30px; 
+  height: 200px;
+  margin-top: 30px;
 }
-
 
 @keyframes left-to-right {
-  0% { transform: translate(1px, 1px) rotate(0deg) scaleX(-1); }
- 10% { transform: translate(-1px, -2px) rotate(-1deg) scaleX(-1); }
- 20% { transform: translate(-3px, 0px) rotate(1deg) scaleX(-1); } 
-  30% { transform: translate(3px, 2px) rotate(0deg) scaleX(-1); }
- 40% { transform: translate(1px, -1px) rotate(1deg) scaleX(-1); }
- 50% { transform: translate(-1px, 2px) rotate(-1deg) scaleX(-1); }
- 60% { transform: translate(-3px, 1px) rotate(0deg) scaleX(-1); }
- 70% { transform: translate(1px, 1px) rotate(-1deg) scaleX(-1); }
- 80% { transform: translate(50px, -1px) rotate(1deg) scaleX(-1); }
- 90% { transform: translate(180px, 2px) rotate(0deg) scaleX(-1); }
- 100% { transform: translate(320px, -2px) rotate(-1deg)  scaleX(-1) ; 
- filter: saturate(200%);
- }
- }
-
-@keyframes right-to-left {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(3px, 2px) rotate(-1deg); }
-  60% { transform: translate(2px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-50px, -1px) rotate(1deg); }
-  90% { transform: translate(-180px, 2px) rotate(0deg); }
-  100% { transform: translate(-320px, -2px) rotate(-1deg); 
-    }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg) scaleX(-1);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg) scaleX(-1);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg) scaleX(-1);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg) scaleX(-1);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg) scaleX(-1);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg) scaleX(-1);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg) scaleX(-1);
+  }
+  70% {
+    transform: translate(1px, 1px) rotate(-1deg) scaleX(-1);
+  }
+  80% {
+    transform: translate(50px, -1px) rotate(1deg) scaleX(-1);
+  }
+  90% {
+    transform: translate(180px, 2px) rotate(0deg) scaleX(-1);
+  }
+  100% {
+    transform: translate(320px, -2px) rotate(-1deg) scaleX(-1);
+    filter: saturate(200%);
+  }
 }
 
+@keyframes right-to-left {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(3px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-50px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(-180px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-320px, -2px) rotate(-1deg);
+  }
+}
 
 .imgRight-img {
   height: 200px;
   margin-top: 30px;
 }
 
-
 .pokeName {
   flex-direction: column;
-  align-content:flex-end; 
+  align-content: flex-end;
   color: aliceblue;
   background-color: rgba(0, 0, 0, 0.733);
   font-size: 20px;
   border-radius: 10px;
   margin-top: 40px;
+  padding: 20px;
+}
+
+.pokeName h3 {
+  color: white;
 }
 
 .pokeName p {
@@ -181,44 +253,52 @@ animation-delay: 4s;
   margin: 0;
 }
 
-.rightFighter{
-  display: block;
-  width: 30%;
-  height: 100%;
-  text-align: center;
-  margin-left: 27%;
-}
-
 .explosion {
-height: 300px;
-position: absolute;
-z-index: 4;
-margin-top: 0px;
-
+  height: 300px;
+  position: absolute;
+  z-index: 4;
+  margin-top: 0px;
 }
 
 .buttons-fight-back {
-display: flex;
-flex-direction: row;
-justify-content: center;
-margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 20px 0 20px;
+  /* border: 2px solid green; */
 }
 
 .FightButton {
-  background-color: #270202dc; 
+  background-color: #117b22dc;
   border: none;
   color: white;
-  /* padding: 15px 32px; */
+  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1.6rem;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; 
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   border-radius: 7px;
   margin: 0px;
 }
 
 .FightButton:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ResetButton {
+  background-color: #88e1ff;
+  border: none;
+  /* height: 35px;
+  width: 220px; */
+  color: black;
+  font-size: 0.8rem;
+  margin: 3px;
+  padding: 0px 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #00000099;
+  border-radius: 4px;
+  transform: translateY(10px);
 }

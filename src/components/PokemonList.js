@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { PokeContext } from "../context/PokeContext";
 import "../App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PokemonList = () => {
   const favoritePokemonNumbers = [
@@ -42,18 +43,22 @@ const PokemonList = () => {
       <div className="main-container-header">
         <h1>Choose your fighter:</h1>
 
-        <form className="form-inline my-2 my-lg-0">
+        <form
+          // className="form-inline my-2 my-lg-0"
+          className="search-form"
+        >
           <input
-            className="form-control mr-sm-2 input-search"
+            // className="form-control mr-sm-2 input-search"
+            className="search-input"
             type="text"
             placeholder="Search Pokemons... "
             onChange={handleSearch}
           />
+          <button id="shuffleBtn" onClick={handleShuffle}>
+            <FontAwesomeIcon icon="fa-solid fa-shuffle" />
+            shuffle list
+          </button>
         </form>
-
-        <button id="shuffleBtn" onClick={handleShuffle}>
-          shuffle list
-        </button>
       </div>
 
       <div className="poke-grid">

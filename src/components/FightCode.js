@@ -7,6 +7,7 @@ import { PlayerContext } from "../context/PlayerContext";
 import { CompContext } from "../context/CompContext";
 import { useEffect } from "react/cjs/react.development";
 import { GameContext } from "../context/GameContext";
+import { stats } from "../logic/boardFunction";
 import BG from "../images/bg0.jpg";
 import BG1 from "../images/bg1.jpg";
 import BG2 from "../images/bg3.jpg";
@@ -51,24 +52,25 @@ const FightCode = () => {
     setWhoAttacks(attacker);
     if (attacker === 1 && player.attack > comp.defense) {
       //player 1 attacks and wins
-      setCurrentDefenseComp(currentDefenseComp * 0.5);
+      setCurrentDefenseComp(currentDefenseComp * 0.01);
       setCurrentRoundWinner(player);
     } else if (attacker === 1 && player.attack < comp.defense) {
       // player 1 attacks and loses
-      setCurrentHpPlayer(currentHpPlayer * 0.5);
+      setCurrentHpPlayer(currentHpPlayer * 0.01);
       setCurrentRoundWinner(comp);
     } else if (attacker === 2 && comp.attack > player.defense) {
       // player 2 attacks and wins
-      setCurrentDefensePlayer(currentDefensePlayer * 0.5);
+      setCurrentDefensePlayer(currentDefensePlayer * 0.01);
       setCurrentRoundWinner(comp);
     } else if (attacker === 2 && comp.attack < player.defense) {
       // player 2 attacks and loses
-      setCurrentHpComp(currentHpComp * 0.5);
+      setCurrentHpComp(currentHpComp * 0.01);
       setCurrentRoundWinner(player);
-    } else {
-      const tryAgain = "No one wins this round. You are both so strong!!";
-      console.log(tryAgain);
     }
+    // else {
+    //   const tryAgain = "No one wins this round. You are both so strong!!";
+    //   console.log(tryAgain);
+    // }
 
     if (currentDefenseComp < 20) {
       setCurrentDefenseComp(0);
@@ -83,29 +85,51 @@ const FightCode = () => {
       setCurrentHpPlayer(0);
     }
   };
-
-  // const getWinner = () => {
-  //   if (currentHpPlayer === 0 || currentDefensePlayer === 0) { // computer won
-  //     return 1
-  //   }
-
-  //   if (currentHpComp === 0 || currentDefenseComp === 0) { // player is winning
-  //     return 2
-  //   }
-
-  //   return -1
+  console.log(winCountPlayer);
+  // if (winCountPlayer) {
+  //   setPlayerScore(1);
+  //   navigate("/Winner");
+  // } else {
+  //   setPlayerScore(0);
+  //   navigate("/Loser");
   // }
 
-  // const playerWon = hasPlayerWon()
-  // console.log(playerWon)
-  // if (playerWon) {
-  //   setPlayerScore(1)
-  // }
+  const getWinner = () => {
+    let winnerFlag = false;
+    if (currentHpPlayer === 0 || currentDefensePlayer === 0) {
+      // computer won
+      setPlayerScore(0);
+      return winnerFlag;
+    } else if (currentHpComp === 0 || currentDefenseComp === 0) {
+      // player is winning
+      winnerFlag = true;
+      setPlayerScore(1);
+      return winnerFlag;
+    } else {
+      setPlayerScore(0);
+      return winnerFlag;
+    }
+  };
+  const winner = getWinner();
+  console.log(winner);
+  console.log(playerScore);
 
-  // const scores = {
-  //   gamesWon: playerScore,
-  //   gamesPlayed: gameCount
-  // }
+  useEffect(() => {
+    const scores = {
+      gamesWon: playerScore,
+      gamesPlayed: gameCount,
+    };
+
+    stats(scores).then((res) => {
+      if (res) {
+        if (winner) {
+          navigate("/Winner");
+        } else if (!winner) {
+          navigate("/Loser");
+        }
+      }
+    });
+  }, []);
 
   const handleExplo = (e) => {
     e.preventDefault();
@@ -138,12 +162,14 @@ const FightCode = () => {
       </div>
 
       <div className="whoAttacked">
-        <h3>
-          {whoAttacks === 1
-            ? "You attack!"
-            : whoAttacks === 2
-            ? "Computer attacks you!"
-            : "Ready To Rumble!"}
+        <h3 className="fight-message">
+          <p>
+            {whoAttacks === 1
+              ? "You attack!"
+              : whoAttacks === 2
+              ? "Computer attacks you!"
+              : "Ready To Rumble!"}
+          </p>
         </h3>
       </div>
 
@@ -163,7 +189,7 @@ const FightCode = () => {
         <img src={Explosion} className={`${explosion ? "explosion" : ""}`} />
       )}
 
-      {currentHpPlayer === 0
+      {/* {currentHpPlayer === 0
         ? navigate("/loser")
         : currentDefensePlayer === 0
         ? navigate("/loser")
@@ -171,9 +197,14 @@ const FightCode = () => {
         ? navigate("/winner")
         : currentDefenseComp === 0
         ? navigate("/winner")
-        : ""}
+        : ""} */}
 
-      <div className="fighters">
+      <div
+        className="fighters"
+        // style={{
+        //   alignItems: "space-between",
+        // }}
+      >
         <div className="leftFighter">
           <div>
             <img
@@ -184,9 +215,32 @@ const FightCode = () => {
 
           <div className="pokeName">
             <h3>{player.nameEN}</h3>
-            <p>Health Points:</p> <p className="">{currentHpPlayer}</p>
-            <p>Defense Points:</p> <p className=""> {currentDefensePlayer}</p>
+            <p>Health: {currentHpPlayer}</p>
+            <p>Defense: {currentDefensePlayer}</p>
           </div>
+        </div>
+
+        <div className="buttons-fight-back">
+          <button
+            className="FightButton"
+            onClick={(e) => {
+              setFight(true);
+              handleExplo(e);
+              codeLogic();
+            }}
+          >
+            FIGHT!
+          </button>
+          <br />
+          <button
+            className="ResetButton"
+            onClick={(e) => {
+              setFight(false);
+              setExplosion(false);
+            }}
+          >
+            reset animation
+          </button>
         </div>
 
         <div className="rightFighter">
@@ -198,32 +252,10 @@ const FightCode = () => {
           </div>
           <div className="pokeName">
             <h3>{comp.nameEN}</h3>
-            <p>Health Points:</p> <p className="">{currentHpComp}</p>
-            <p>Defense Points:</p> <p className=""> {currentDefenseComp}</p>
+            <p>Health: {currentHpComp}</p>
+            <p>Defense: {currentDefenseComp}</p>
           </div>
         </div>
-      </div>
-      <div className="buttons-fight-back">
-        <button
-          className="FightButton"
-          onClick={(e) => {
-            setFight(true);
-            handleExplo(e);
-            codeLogic();
-          }}
-        >
-          FIGHT!
-        </button>
-
-        <button
-          className="FightButton"
-          onClick={(e) => {
-            setFight(false);
-            setExplosion(false);
-          }}
-        >
-          BACK!
-        </button>
       </div>
     </div>
   );
