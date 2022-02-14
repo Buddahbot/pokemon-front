@@ -1,6 +1,5 @@
-import "./App.css";
+// import "./App.css";
 
-import Fight from "./components/Fight";
 import Fighter from "./components/Fighter";
 import Home from "./components/Home";
 import Leaderboard from "./components/Leaderboard";
@@ -10,6 +9,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import FightCode from "./components/FightCode";
+// import Fight from './components/Fight';
 import Loser from './components/Loser'
 import { Route, Routes, Link } from "react-router-dom";
 import { useState, useEffect, useParams } from "react";
@@ -30,7 +30,7 @@ const AppRouter = () => {
         <Route exact path="/pokemon/:id" element={<Fighter />}></Route>
         <Route exact path="/fightcode" element={<FightCode />}></Route>
         <Route exact path="/matchup" element={<Matchup />}></Route>
-        <Route exact path="/fight" element={<Fight />}></Route>
+        {/* <Route exact path="/fight" element={<Fight />}></Route> */}
         <Route exact path="/winner" element={<Winner/>}></Route>
         <Route exact path="/loser" element={<Loser />}></Route>
         <Route exact path="/leaderboard" element={<Leaderboard />}></Route>

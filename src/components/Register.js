@@ -31,12 +31,14 @@ const Register = () => {
           {/* <h3>Sign up to fight!</h3> */}
           <form onSubmit={createUser}>
             <input
-              placeholder="enter Playername"
+              className="form-control mr-sm-2 input-search"
+              placeholder="enter playername"
               value={name}
               name="Playername"
               onChange={(e) => setName(e.target.value)}
             ></input>
             <input
+              className="form-control mr-sm-2 input-search"
               placeholder="enter password"
               value={password}
               type="password"

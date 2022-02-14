@@ -9,10 +9,8 @@ import { NavLink } from "react-router-dom";
 const Winner = () => {
   const [pokemons, setPokemons] = useContext(PokeContext);
   const [player, setPlayer] = useContext(PlayerContext);
-  // const [playerScore, setPlayerScore] = useContext(PlayerContext)
-  // const [compScore, setCompScore] = useContext(CompContext);
-  const [comp, setComp] = useContext(CompContext);
-  
+
+
 
   const placeholder = pokemons[11];
 
@@ -28,36 +26,39 @@ const Winner = () => {
   };
 
   return (
-    <div className="container ">
+    <div className="container-winner ">
       <div className="buttons">
-        <NavLink className="button" to="/leaderboard">
-          Leaderboard
-        </NavLink>
+        <NavLink className="button" to="/leaderboard">Leaderboard</NavLink>
       </div>
 
-      <h2>WINNER</h2>
+      <div class="waviy">
+        <span className="--i:2">W</span>
+        <span className="--i:3">I</span>
+        <span className="--i:4">N</span>
+        <span className="--i:5">N</span>
+        <span className="--i:6">E</span>
+        <span className="--i:7">R</span>
+      </div>
 
       <div className="winnerPoke">
+
         <div className="">
-          <img src={placeholderImage} className="img" />
+          <img src={player.image} className="img" />
         </div>
 
-        <button className="button" onClick={onClick}>
-          Click me!
-        </button>
+        <button className="button" onClick={onClick}>Click me!</button>
 
         <div className="playAgainButton">
-          <NavLink className="button" to="/pokemonlist">
-            PLAY AGAIN
-          </NavLink>
+          <NavLink className="button" to="/pokemonlist">PLAY AGAIN</NavLink>
         </div>
 
         <div className="info">
           <div className="pokeNames">
-            <h3>{placeholder.name.english}</h3>
-            <h3>{placeholder.name.japanese}</h3>
+            <h3 >{player.nameEN}</h3>
+            <h4 >{player.nameJP}</h4>
           </div>
         </div>
+
       </div>
     </div>
   );

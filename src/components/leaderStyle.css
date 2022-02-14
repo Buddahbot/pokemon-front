@@ -1,0 +1,30 @@
+.leaderboard-grid {
+  height: 300px;
+  width: 90%;
+  background-color: rgba(245, 245, 245, 0.637);
+  margin: 10px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  border-radius: 10px;
+}
+
+.leader-header {
+  border: 0px;
+  /* color: red; */
+  background-color: #0071bc;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  height: 40px;
+}
+
+.leader-content {
+  font-size: 1.3rem;
+  color: #0071bc;
+}
+
+.bold {
+  font-weight: 900;
+}
